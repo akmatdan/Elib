@@ -8,13 +8,48 @@
 import SwiftUI
 
 struct BookDetailView: View {
+    
+    var book: Book
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack(spacing: 20) {
+                Image(book.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 300)
+                    .cornerRadius(12)
+                
+                Text(book.title)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                
+                HStack(spacing: 40) {
+                    Text("Author: \(book.author)")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
+                    
+                    Text("Published: \(book.year)")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
+                }
+                
+                Text(book.description)
+                    .font(.body)
+                    .padding()
+                
+                Spacer()
+                
+            }
+        }
     }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView()
+        BookDetailView(book: BookList.topTen.first!)
     }
 }
