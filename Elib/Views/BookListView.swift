@@ -34,10 +34,18 @@ struct BookListView: View {
                             .fontWeight(.semibold)
                             .lineLimit(2)
                             .minimumScaleFactor(0.5)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         
                         Text(books.author)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        Image(systemName: "heart")
+                            .frame(width: 20, height: 30)
+                        
+                        Image(systemName: "chevron.down")
                     }
                 }
                 .padding(.vertical, 8)
