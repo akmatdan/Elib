@@ -14,10 +14,11 @@ struct BookListView: View {
     @State var searchText = ""
     
     var body: some View {
-        SearchBar(searchText: $searchText)
+        
         NavigationView {
-            VStack(alignment: .leading) {
             
+            VStack(alignment: .leading) {
+                SearchBar(searchText: $searchText)
                 List(filteredBooks, id: \.id) { books in
                     
                     NavigationLink(destination: BookDetailView(book: books)) {
@@ -26,7 +27,9 @@ struct BookListView: View {
 
                 }
             }
+            .navigationTitle("Library Manager")
         }
+        
     }
     
     var filteredBooks: [Book] {

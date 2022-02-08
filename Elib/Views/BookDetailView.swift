@@ -12,12 +12,14 @@ struct BookDetailView: View {
     var book: Book
     
     var body: some View {
+        
         NavigationView {
+            
             VStack(spacing: 20) {
                 Image(book.imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 300)
+                    .frame(height: 350)
                     .cornerRadius(12)
                 
                 Text(book.title)
@@ -40,10 +42,8 @@ struct BookDetailView: View {
                 Text(book.description)
                     .font(.body)
                     .padding()
-                
-                Spacer()
-                
             }
+            .navigationTitle("Details")
         }
     }
 }
