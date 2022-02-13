@@ -37,6 +37,10 @@ struct BookDetailView: View {
                     Text("Published: \(book.year)")
                         .font(.title3)
                         .foregroundColor(.secondary)
+                    
+                    Text("ISBN: \(book.isbn)")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
                 }
                 
                 Text(book.description)

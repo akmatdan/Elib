@@ -12,6 +12,7 @@ struct BookListView: View {
     var books: [Book] = BookList.topTen
     
     @State var searchText = ""
+    @ObservedObject private var viewModel = BooksViewModel()
     
     var body: some View {
         
@@ -24,12 +25,13 @@ struct BookListView: View {
                     NavigationLink(destination: BookDetailView(book: books)) {
                         BookCell(books: books)
                     }
-
                 }
             }
             .navigationTitle("Library Manager")
+            .onAppear() {
+                self.viewModel.fetchData()
+            }
         }
-        
     }
     
     var filteredBooks: [Book] {
@@ -37,7 +39,8 @@ struct BookListView: View {
             return books
         } else {
             return books.filter { ($0.title.localizedCaseInsensitiveContains(searchText)) ||
-                ($0.author.localizedCaseInsensitiveContains(searchText))
+                ($0.author.localizedCaseInsensitiveContains(searchText)) ||
+                ($0.isbn.localizedStandardContains(searchText))
             }
         }
     }
@@ -64,6 +67,10 @@ struct BookCell: View {
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 
                 Text(books.author)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                
+                Text(books.isbn)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
