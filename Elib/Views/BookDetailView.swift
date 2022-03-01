@@ -14,40 +14,41 @@ struct BookDetailView: View {
     var body: some View {
         
         NavigationView {
-            
-            VStack(spacing: 20) {
-                Image(book.imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 350)
-                    .cornerRadius(12)
-                
-                Text(book.title)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-                
-                HStack(spacing: 40) {
-                    Text("Author: \(book.author)")
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+            ScrollView {
+                VStack(spacing: 20) {
+                    Image(book.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 350)
+                        .cornerRadius(12)
+                        .padding(.top, -50)
                     
-                    Text("Published: \(book.year)")
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+                    Text(book.title)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
                     
-                    Text("ISBN: \(book.isbn)")
-                        .font(.title3)
-                        .foregroundColor(.secondary)
+                    HStack(spacing: 40) {
+                        Text("Author: \(book.author)")
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                        
+                        Text("Published: \(book.year)")
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                        
+                        Text("ISBN: \(book.isbn)")
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Text(book.description)
+                        .font(.body)
+                        .padding()
                 }
-                
-                Text(book.description)
-                    .font(.body)
-                    .padding()
             }
-            .navigationTitle("Details")
         }
     }
 }

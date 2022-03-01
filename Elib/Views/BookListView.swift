@@ -28,9 +28,9 @@ struct BookListView: View {
                 }
             }
             .navigationTitle("Library Manager")
-            .onAppear() {
-                self.viewModel.fetchData()
-            }
+//            .onAppear() {
+//                self.viewModel.fetchData()
+//            }
         }
     }
     
@@ -47,10 +47,11 @@ struct BookListView: View {
 }
 
 struct BookCell: View {
-    
+
     var books: Book
-    
+
     var body: some View {
+        
         HStack() {
             Image(books.imageName)
                 .resizable()
@@ -81,6 +82,7 @@ struct BookCell: View {
                 Spacer()
             }
         }
+
     }
 }
 
