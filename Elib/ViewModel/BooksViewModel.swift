@@ -10,28 +10,32 @@ import FirebaseFirestore
 
 class BooksViewModel: ObservableObject {
     
-    @Published var books = [Book]()
-    
-    private var db = Firestore.firestore()
+    @Published var books = [Books]()
     
     func fetchData() {
-        db.collection("books").addSnapshotListener { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else {
-                print("No documents")
-                return
-            }
-            
-            self.books = documents.map { (querySnapshot) -> Book in
-                let data = querySnapshot.data()
+        let db = Firestore.firestore()
+        
+        db.collection("books").getDocuments { snapshot, error in
+            if error == nil {
                 
-                let isbn = data["isbn"] as? String ?? ""
-                let title = data["title"] as? String ?? ""
-                let author = data["author"] as? String ?? ""
-                let year = data["year"] as? Int ?? 0
-                let description = data["description"] as? String ?? ""
-                let imageName = data["imageName"] as? String ?? ""
+                if let snapshot = snapshot {
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.books = snapshot.documents.map { d in
+                            return Books(
+                                         isbn: d["isbn"] as? String ?? "",
+                                         imageName: d["imageName"] as? String ?? "",
+                                         title: d["title"] as? String ?? "",
+                                         author: d["author"] as? String ?? "",
+                                         year: d["year"] as? Int ?? 0,
+                                         description: d["description"] as? String ?? ""
+                            )
+                        }
+                    }
+                }
+            } else {
                 
-                return Book(isbn: isbn, imageName: imageName, title: title, author: author, year: year, description: description)
             }
         }
     }

@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct HomeView: View {
+    
     var body: some View {
         NavigationView {
             ScrollView{
-                Text("Home")
-                    
+                Text("HomeView")
             }
         }
     }

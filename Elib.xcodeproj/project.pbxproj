@@ -20,6 +20,9 @@
 		E31DFF6027B4BF9500508E96 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */; };
 		E3508FFF27CCAAC50049E637 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3508FFE27CCAAC50049E637 /* TabBar.swift */; };
 		E350900127CD54190049E637 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350900027CD54190049E637 /* HomeView.swift */; };
+		E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */; };
+		E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E98827D2A55F00218B86 /* MyLibraryView.swift */; };
+		E370E98B27D2A56D00218B86 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E98A27D2A56D00218B86 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		E3508FFE27CCAAC50049E637 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		E350900027CD54190049E637 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationBar.swift; sourceTree = "<group>"; };
+		E370E98827D2A55F00218B86 /* MyLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryView.swift; sourceTree = "<group>"; };
+		E370E98A27D2A56D00218B86 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +97,12 @@
 		E31DFF3327B123F900508E96 /* Elib */ = {
 			isa = PBXGroup;
 			children = (
+				E350900227CE8CB70049E637 /* Modifiers */,
 				E31DFF5E27B4BF7600508E96 /* ViewModel */,
 				E31DFF4227B1241D00508E96 /* Components */,
 				E31DFF4627B1390E00508E96 /* Views */,
 				E31DFF4527B1390400508E96 /* Models */,
+				E31DFF3627B123F900508E96 /* ContentView.swift */,
 				E31DFF3427B123F900508E96 /* ElibApp.swift */,
 				E31DFF3827B1240000508E96 /* Assets.xcassets */,
 				E31DFF4D27B3A0F000508E96 /* GoogleService-Info.plist */,
@@ -132,9 +140,10 @@
 			children = (
 				E31DFF4727B13B3100508E96 /* BookListView.swift */,
 				E31DFF4B27B2E75300508E96 /* BookDetailView.swift */,
-				E31DFF3627B123F900508E96 /* ContentView.swift */,
 				E3508FFE27CCAAC50049E637 /* TabBar.swift */,
 				E350900027CD54190049E637 /* HomeView.swift */,
+				E370E98827D2A55F00218B86 /* MyLibraryView.swift */,
+				E370E98A27D2A56D00218B86 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +154,14 @@
 				E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E350900227CE8CB70049E637 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,11 +283,14 @@
 				E31DFF4827B13B3100508E96 /* BookListView.swift in Sources */,
 				E31DFF3727B123F900508E96 /* ContentView.swift in Sources */,
 				E31DFF3527B123F900508E96 /* ElibApp.swift in Sources */,
+				E370E98B27D2A56D00218B86 /* ProfileView.swift in Sources */,
 				E3508FFF27CCAAC50049E637 /* TabBar.swift in Sources */,
 				E31DFF6027B4BF9500508E96 /* BooksViewModel.swift in Sources */,
+				E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */,
 				E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */,
 				E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */,
 				E31DFF4A27B13B7900508E96 /* Books.swift in Sources */,
+				E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +428,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -438,6 +459,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

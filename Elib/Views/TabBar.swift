@@ -35,11 +35,11 @@ struct TabBar: View {
                 case 1:
                     BookListView()
                     
-                    
+                case 3:
+                    MyLibraryView()
+
                 default:
-                    NavigationView {
-                        Text("Remining tabs")
-                    }
+                    ProfileView()
                 }
             }
             
@@ -61,8 +61,8 @@ struct TabBar: View {
                         
                         if num == 2 {
                             Image(systemName: tabBarImageNames[num])
-                                .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.7))
+                                .font(.system(size: 32, weight: .bold))
+                                .foregroundColor(Color(.red))
                         } else {
                             Image(systemName: tabBarImageNames[num])
                                 .font(.system(size: 24, weight: .bold))

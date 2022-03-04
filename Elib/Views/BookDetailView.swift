@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct BookDetailView: View {
-    
-    var book: Book
+
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @GestureState private var dragOffset = CGSize.zero
+
+    var book: Books
     
     var body: some View {
-        
+
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
@@ -22,39 +25,34 @@ struct BookDetailView: View {
                         .frame(height: 350)
                         .cornerRadius(12)
                         .padding(.top, -50)
-                    
+
                     Text(book.title)
                         .font(.title2)
                         .fontWeight(.semibold)
                         .lineLimit(2)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
-                    
+
                     HStack(spacing: 40) {
                         Text("Author: \(book.author)")
                             .font(.title3)
                             .foregroundColor(.secondary)
-                        
+
                         Text("Published: \(book.year)")
                             .font(.title3)
                             .foregroundColor(.secondary)
-                        
+
                         Text("ISBN: \(book.isbn)")
                             .font(.title3)
                             .foregroundColor(.secondary)
                     }
-                    
+
                     Text(book.description)
                         .font(.body)
                         .padding()
                 }
             }
-        }
-    }
-}
+        }.hiddenNavigationBarStyle()
 
-struct BookDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookDetailView(book: BookList.topTen.first!)
     }
 }

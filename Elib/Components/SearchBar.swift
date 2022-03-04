@@ -58,6 +58,8 @@ struct SearchBar: View {
             }
         }
         .padding()
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 
