@@ -182,6 +182,8 @@
 			dependencies = (
 			);
 			name = Elib;
+			packageProductDependencies = (
+			);
 			productName = Elib;
 			productReference = E31DFF3127B123F900508E96 /* Elib.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +212,8 @@
 				Base,
 			);
 			mainGroup = E31DFF2827B123F900508E96;
+			packageReferences = (
+			);
 			productRefGroup = E31DFF3227B123F900508E96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

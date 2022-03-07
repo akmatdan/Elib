@@ -12,6 +12,10 @@ class BooksViewModel: ObservableObject {
     
     @Published var books = [Books]()
     
+    func addData() {
+        
+    }
+    
     func fetchData() {
         let db = Firestore.firestore()
         
