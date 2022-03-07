@@ -35,7 +35,8 @@ class BooksViewModel: ObservableObject {
                     }
                 }
             } else {
-                
+                print((error?.localizedDescription)!)
+                return
             }
         }
     }
