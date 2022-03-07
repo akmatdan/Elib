@@ -11,7 +11,7 @@ struct BookDetailView: View {
 
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
-
+    
     var book: Books
     
     var body: some View {
@@ -19,12 +19,7 @@ struct BookDetailView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                    Image(book.imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 350)
-                        .cornerRadius(12)
-                        .padding(.top, -50)
+                    DetailImageLoader(url: book.imageName)
 
                     Text(book.title)
                         .font(.title2)

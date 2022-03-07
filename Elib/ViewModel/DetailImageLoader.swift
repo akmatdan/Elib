@@ -1,8 +1,8 @@
 //
-//  ImageLoader.swift
+//  DetailImageLoader.swift
 //  Elib
 //
-//  Created by Daniil Akmatov on 7/3/22.
+//  Created by Daniil Akmatov on 8/3/22.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 import Firebase
 import FirebaseStorage
 
-struct ImageLoader: View {
+struct DetailImageLoader: View {
     
     @State var url = ""
     
@@ -20,8 +20,9 @@ struct ImageLoader: View {
                 AnimatedImage(url: URL(string: url)!)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 120)
-                    .cornerRadius(5)
+                    .frame(height: 350)
+                    .cornerRadius(12)
+                    .padding(.top, -50)
             } else {
                 Loader()
             }
@@ -39,19 +40,5 @@ struct ImageLoader: View {
                 }
             }
         }
-    }
-}
-
-struct Loader: UIViewRepresentable {
-    
-    func makeUIView(context: UIViewRepresentableContext<Loader>) -> UIActivityIndicatorView {
-        
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.startAnimating()
-        return indicator
-    }
-    
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<Loader>) {
-        
     }
 }
