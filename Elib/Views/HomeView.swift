@@ -13,7 +13,11 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView{
-                Text("HomeView")
+                VStack {
+                    HStack {
+                        Text("HomeView")
+                    }
+                }
             }
         }
     }

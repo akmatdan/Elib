@@ -32,7 +32,7 @@ class BooksViewModel: ObservableObject {
                                          imageName: d["imageName"] as? String ?? "",
                                          title: d["title"] as? String ?? "",
                                          author: d["author"] as? String ?? "",
-                                         year: d["year"] as? Int ?? 0,
+                                         year: d["year"] as? String ?? "",
                                          description: d["description"] as? String ?? ""
                             )
                         }
