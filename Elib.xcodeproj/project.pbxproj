@@ -13,7 +13,7 @@
 		E31DFF3927B1240000508E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31DFF3827B1240000508E96 /* Assets.xcassets */; };
 		E31DFF3C27B1240000508E96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31DFF3B27B1240000508E96 /* Preview Assets.xcassets */; };
 		E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF4327B1245300508E96 /* SearchBar.swift */; };
-		E31DFF4827B13B3100508E96 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF4727B13B3100508E96 /* BookListView.swift */; };
+		E31DFF4827B13B3100508E96 /* SearchBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF4727B13B3100508E96 /* SearchBooksView.swift */; };
 		E31DFF4A27B13B7900508E96 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF4927B13B7900508E96 /* Books.swift */; };
 		E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF4B27B2E75300508E96 /* BookDetailView.swift */; };
 		E31DFF4E27B3A0F000508E96 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E31DFF4D27B3A0F000508E96 /* GoogleService-Info.plist */; };
@@ -30,6 +30,7 @@
 		E370E9BB27D889AB00218B86 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B827D889AA00218B86 /* Raleway-Regular.ttf */; };
 		E370E9BC27D889AB00218B86 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */; };
 		E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */; };
+		E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D2F0927DA7A7000EE4A00 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +43,7 @@
 		E31DFF3827B1240000508E96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E31DFF3B27B1240000508E96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E31DFF4327B1245300508E96 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		E31DFF4727B13B3100508E96 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
+		E31DFF4727B13B3100508E96 /* SearchBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBooksView.swift; sourceTree = "<group>"; };
 		E31DFF4927B13B7900508E96 /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		E31DFF4B27B2E75300508E96 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		E31DFF4D27B3A0F000508E96 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		E370E9BD27D88A0B00218B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		E39D2F0927DA7A7000EE4A00 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,13 +157,14 @@
 			isa = PBXGroup;
 			children = (
 				E370E9B627D8898100218B86 /* Fonts */,
-				E31DFF4727B13B3100508E96 /* BookListView.swift */,
+				E31DFF4727B13B3100508E96 /* SearchBooksView.swift */,
 				E31DFF4B27B2E75300508E96 /* BookDetailView.swift */,
 				E3508FFE27CCAAC50049E637 /* TabBar.swift */,
 				E350900027CD54190049E637 /* HomeView.swift */,
 				E370E98827D2A55F00218B86 /* MyLibraryView.swift */,
 				E370E98A27D2A56D00218B86 /* ProfileView.swift */,
 				E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */,
+				E39D2F0927DA7A7000EE4A00 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -319,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E350900127CD54190049E637 /* HomeView.swift in Sources */,
-				E31DFF4827B13B3100508E96 /* BookListView.swift in Sources */,
+				E31DFF4827B13B3100508E96 /* SearchBooksView.swift in Sources */,
 				E31DFF3727B123F900508E96 /* ContentView.swift in Sources */,
 				E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */,
 				E31DFF3527B123F900508E96 /* ElibApp.swift in Sources */,
@@ -332,6 +335,7 @@
 				E31DFF4A27B13B7900508E96 /* Books.swift in Sources */,
 				E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */,
 				E370E9AA27D6674E00218B86 /* ImageLoader.swift in Sources */,
+				E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */,
 				E370E9B527D6A89B00218B86 /* DetailImageLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

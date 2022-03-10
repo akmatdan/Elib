@@ -33,7 +33,7 @@ struct TabBar: View {
                     HomeView()
                     
                 case 1:
-                    BookListView()
+                    SearchBooksView()
                     
                 case 3:
                     MyLibraryView()

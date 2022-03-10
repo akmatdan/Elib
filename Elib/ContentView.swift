@@ -13,8 +13,8 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
-//            TabBar()
-            OnBoardingView()
+            TabBar()
+//            OnBoardingView()
         }
     }
 }

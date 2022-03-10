@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BookListView: View {
+struct SearchBooksView: View {
     
     @State var searchText = ""
     @ObservedObject var model = BooksViewModel()
@@ -68,9 +68,9 @@ struct BookListView: View {
     }
 }
 
-struct BookListView_Previews: PreviewProvider {
+struct SearchBooksView_Previews: PreviewProvider {
     static var previews: some View {
-        BookListView()
+        SearchBooksView()
     }
 }
 
