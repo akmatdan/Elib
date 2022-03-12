@@ -31,6 +31,8 @@
 		E370E9BC27D889AB00218B86 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */; };
 		E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */; };
 		E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D2F0927DA7A7000EE4A00 /* LoginView.swift */; };
+		E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */; };
+		E3E51C2827DC4E660075FF89 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2727DC4E660075FF89 /* CustomCorners.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		E370E9BD27D88A0B00218B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		E39D2F0927DA7A7000EE4A00 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E3E51C2727DC4E660075FF89 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				E31DFF4327B1245300508E96 /* SearchBar.swift */,
+				E3508FFE27CCAAC50049E637 /* TabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -159,7 +164,6 @@
 				E370E9B627D8898100218B86 /* Fonts */,
 				E31DFF4727B13B3100508E96 /* SearchBooksView.swift */,
 				E31DFF4B27B2E75300508E96 /* BookDetailView.swift */,
-				E3508FFE27CCAAC50049E637 /* TabBar.swift */,
 				E350900027CD54190049E637 /* HomeView.swift */,
 				E370E98827D2A55F00218B86 /* MyLibraryView.swift */,
 				E370E98A27D2A56D00218B86 /* ProfileView.swift */,
@@ -175,6 +179,7 @@
 				E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */,
 				E370E9A927D6674E00218B86 /* ImageLoader.swift */,
 				E370E9B427D6A89B00218B86 /* DetailImageLoader.swift */,
+				E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 		E350900227CE8CB70049E637 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				E3E51C2727DC4E660075FF89 /* CustomCorners.swift */,
 				E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */,
 			);
 			path = Modifiers;
@@ -322,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E350900127CD54190049E637 /* HomeView.swift in Sources */,
+				E3E51C2827DC4E660075FF89 /* CustomCorners.swift in Sources */,
 				E31DFF4827B13B3100508E96 /* SearchBooksView.swift in Sources */,
 				E31DFF3727B123F900508E96 /* ContentView.swift in Sources */,
 				E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */,
@@ -331,6 +338,7 @@
 				E31DFF6027B4BF9500508E96 /* BooksViewModel.swift in Sources */,
 				E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */,
 				E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */,
+				E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */,
 				E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */,
 				E31DFF4A27B13B7900508E96 /* Books.swift in Sources */,
 				E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */,
