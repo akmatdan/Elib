@@ -56,23 +56,25 @@ struct LoginView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(spacing: 15) {
-                    Text("Login")
+                    Text(loginData.registerUser ? "Register" : "Login")
                         .font(.custom(customFont, size: 22).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
+                    // Email Field
                     CustomTextField(icon: "envelope", title: "Email", hint: "abcde@gmail.com", value: $loginData.email, showPassword: .constant(false))
                         .padding(.top, 30)
                     
+                    // Password Field
                     CustomTextField(icon: "lock", title: "Password", hint: "12345", value: $loginData.password, showPassword: $loginData.showPassword)
                         .padding(.top, 10)
                     
-                    //Register reenter password
+                    // Register reenter password
                     if loginData.registerUser{
                         CustomTextField(icon: "envelope", title: "Re-Enter Password", hint: "123456", value: $loginData.reEnterPassword, showPassword: $loginData.showReEnterPassword)
                             .padding(.top, 10)
                     }
                     
-                    //Forgot Password Button
+                    // Forgot Password Button
                     Button {
                         loginData.ForgotPassword()
                     } label: {
@@ -80,12 +82,11 @@ struct LoginView: View {
                             .font(.custom(customFont, size: 14))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(red: 0.2, green: 0.0, blue: 0.7))
-                        
                     }
                     .padding(.top, 8)
                     .frame(maxWidth: .infinity)
                     
-                    //Login Button
+                    // Login Button
                     Button {
                         if loginData.registerUser {
                             loginData.Register()
@@ -107,6 +108,19 @@ struct LoginView: View {
                     .padding(.top, 20)
                     .padding(.horizontal)
                     
+                    // Register Button
+                    Button {
+                        withAnimation {
+                            loginData.registerUser.toggle()
+                        }
+                    } label: {
+                        Text(loginData.registerUser ? "Back to login" : "Create account")
+                            .font(.custom(customFont, size: 14))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(red: 0.2, green: 0.0, blue: 0.7))
+                    }
+                    .padding(.top, 8)
+                    
                 }
                 .padding(30)
             }
@@ -118,6 +132,16 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(red: 0.2, green: 0.0, blue: 0.7))
+        
+        // Clearing data when changes
+        .onChange(of: loginData.registerUser) { newValue in
+            loginData.email = ""
+            loginData.password = ""
+            loginData.reEnterPassword = ""
+            loginData.showPassword = false
+            loginData.showReEnterPassword = false
+            
+        }
     }
     
     @ViewBuilder

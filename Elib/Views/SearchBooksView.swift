@@ -49,7 +49,6 @@ struct SearchBooksView: View {
                     }
                 }
             }
-            
             .onAppear() {
                 self.model.fetchData()
             }

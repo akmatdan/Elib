@@ -23,14 +23,13 @@ struct TabBar: View {
                     .fullScreenCover(isPresented: $shouldShowModel, content: {
                         Button(action: {shouldShowModel.toggle()}, label: {
                             Text("Cancel")
-                                
                         })
                     })
                     
                 
                 switch selectedIndex {
                 case 0:
-                    HomeView()
+                    HomeTabBar()
                     
                 case 1:
                     SearchBooksView()

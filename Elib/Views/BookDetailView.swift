@@ -42,9 +42,12 @@ struct BookDetailView: View {
                             .foregroundColor(.secondary)
                     }
 
-                    Text(book.description)
-                        .font(.body)
-                        .padding()
+                    ScrollView {
+                        Text(book.description)
+                            .font(.body)
+                            .padding()
+                    }
+                    .frame(width: 200, height: 200)
                 }
             }
         }.hiddenNavigationBarStyle()

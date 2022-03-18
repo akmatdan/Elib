@@ -11,6 +11,8 @@ import SwiftUI
 let customFont = "Raleway-Regular"
 
 struct OnBoardingView: View {
+    @State var showLoginView: Bool = false
+    
     var body: some View {
         
         VStack {
@@ -26,7 +28,9 @@ struct OnBoardingView: View {
                 .shadow(color: Color.black.opacity(0.3), radius: 5, x: 5, y: 5)
             
             Button {
-                
+                withAnimation{
+                    showLoginView = true
+                }
             } label: {
                 Text("Get started")
                     .font(.custom(customFont, size: 23))
@@ -48,6 +52,15 @@ struct OnBoardingView: View {
         .padding(.top, getRect().height < 750 ? 0 : 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(red: 0.2, green: 0.0, blue: 0.7))
+        // Showing LoginView
+        .overlay(
+            Group{
+                if showLoginView{
+                    LoginView()
+                        .transition(.move(edge: .bottom))
+                }
+            }
+        )
     }
 }
 
