@@ -36,6 +36,7 @@
 		E370E9BC27D889AB00218B86 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */; };
 		E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */; };
 		E39A222327EDA26B008951B5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A222227EDA26A008951B5 /* ImagePicker.swift */; };
+		E39A222527EDC09D008951B5 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A222427EDC09D008951B5 /* AddBookView.swift */; };
 		E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D2F0927DA7A7000EE4A00 /* LoginView.swift */; };
 		E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */; };
 		E3E51C2827DC4E660075FF89 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2727DC4E660075FF89 /* CustomCorners.swift */; };
@@ -74,6 +75,7 @@
 		E370E9BD27D88A0B00218B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		E39A222227EDA26A008951B5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E39A222427EDC09D008951B5 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		E39D2F0927DA7A7000EE4A00 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E3E51C2727DC4E660075FF89 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				E370E98A27D2A56D00218B86 /* ProfileView.swift */,
 				E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */,
 				E39D2F0927DA7A7000EE4A00 /* LoginView.swift */,
+				E39A222427EDC09D008951B5 /* AddBookView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,7 +274,7 @@
 			);
 			mainGroup = E31DFF2827B123F900508E96;
 			packageReferences = (
-				E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */,
+				E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = E31DFF3227B123F900508E96 /* Products */;
 			projectDirPath = "";
@@ -359,6 +362,7 @@
 				E31DFF6027B4BF9500508E96 /* BooksViewModel.swift in Sources */,
 				E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */,
 				E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */,
+				E39A222527EDC09D008951B5 /* AddBookView.swift in Sources */,
 				E34058DF27E4D614005504ED /* BookCardView.swift in Sources */,
 				E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */,
 				E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */,
@@ -581,7 +585,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */ = {
+		E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -594,7 +598,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E370E9B227D69A9500218B86 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */;
+			package = E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
