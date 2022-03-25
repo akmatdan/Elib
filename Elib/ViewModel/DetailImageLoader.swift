@@ -11,9 +11,9 @@ import Firebase
 import FirebaseStorage
 
 struct DetailImageLoader: View {
-    
+
     @State var url = ""
-    
+
     var body: some View {
         VStack {
             if url != "" {
@@ -28,16 +28,14 @@ struct DetailImageLoader: View {
             }
         }
         .onAppear() {
-            DispatchQueue.main.async {
-                let storage = Storage.storage().reference()
-                storage.child("\(url)").downloadURL { url, err in
-                    
-                    if err != nil {
-                        print((err?.localizedDescription)!)
-                        return
-                    }
-                    self.url = "\(url!)"
+            let storage = Storage.storage().reference()
+            storage.child("\(url)").downloadURL { url, err in
+
+                if err != nil {
+                    print((err?.localizedDescription)!)
+                    return
                 }
+                self.url = "\(url!)"
             }
         }
     }

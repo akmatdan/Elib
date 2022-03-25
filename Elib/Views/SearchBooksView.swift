@@ -14,7 +14,7 @@ struct SearchBooksView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack() {
                 SearchBar(searchText: $searchText)
                 
                 List(filteredBooks, id: \.self) { books in
@@ -50,9 +50,9 @@ struct SearchBooksView: View {
                 }
             }
             .onAppear() {
-                self.model.fetchData()
+                model.fetchData()
             }
-        }
+        }.hiddenNavigationBarStyle()
     }
     
     var filteredBooks: [Books] {

@@ -41,16 +41,23 @@ struct BookDetailView: View {
                             .font(.title3)
                             .foregroundColor(.secondary)
                     }
-
-                    ScrollView {
-                        Text(book.description)
-                            .font(.body)
-                            .padding()
+                    VStack {
+                        Divider()
+                        
+                        Text("Description:")
+                            .font(.title3)
+                            .foregroundColor(.secondary)
+                        
+                        ScrollView {
+                            Text(book.description)
+                                .font(.body)
+                                .padding(.horizontal)
+                        }
+                        .frame(width: 400, height: 200)
                     }
-                    .frame(width: 200, height: 200)
+                    Spacer()
                 }
             }
         }.hiddenNavigationBarStyle()
-
     }
 }

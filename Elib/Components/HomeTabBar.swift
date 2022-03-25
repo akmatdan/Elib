@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeTabBar: View {
     
+    @State var searchText = ""
     @State var selectedIndex = 1
     @State var shouldShowModel = false
     
@@ -16,7 +17,7 @@ struct HomeTabBar: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            
+           
             HStack {
                 ForEach(0..<3) {num in
                     Button(action: {
@@ -25,15 +26,22 @@ struct HomeTabBar: View {
                         Spacer()
                             Text("\(tabBarImageNames[num])")
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(.black) : .init(white: 0.7))
-                        
+                                .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : .init(white: 0.7))
+                                .padding(.bottom, 10)
+                                .overlay(
+                                    ZStack {
+                                        if selectedIndex == num {
+                                            Capsule()
+                                                .fill(Color(red: 0.2, green: 0.0, blue: 0.7))
+                                                .frame(height: 2)
+                                        }
+                                    }
+                                        ,alignment: .bottom
+                                )
                         Spacer()
                     })
                 }
             }
-            Spacer()
-            Divider()
-                .padding(.top, 8)
             Spacer()
             
             ZStack {
@@ -49,7 +57,7 @@ struct HomeTabBar: View {
                     LibrariesList()
                 }
             }
-        }
+        }.background(Color.white)
     }
 }
 

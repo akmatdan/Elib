@@ -10,7 +10,10 @@ import SwiftUI
 struct LibrariesList: View {
     var body: some View {
         NavigationView {
-            Text("LibrarisList")
+            ZStack {
+                Text("LibrarisList")
+                Spacer()
+            }
         }
     }
 }

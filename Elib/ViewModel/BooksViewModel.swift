@@ -12,8 +12,23 @@ class BooksViewModel: ObservableObject {
 
     @Published var books = [Books]()
 
-    func addData() {
+    func addData(isbn: String, title: String, author: String, year: String, description: String) {
         
+        // Get ref to the db
+        let db = Firestore.firestore()
+        db.collection("books").addDocument(data: ["isbn": isbn, "title": title, "author": author, "year": year, "description": description]) { error in
+            
+            if error == nil {
+                
+                // Call data to retrive latest data
+                self.fetchData()
+            } else {
+                print((error?.localizedDescription)!)
+                return
+            }
+        }
+        
+        // Add data to collection
     }
 
     func fetchData() {
@@ -25,8 +40,10 @@ class BooksViewModel: ObservableObject {
                 if let snapshot = snapshot {
 
                     DispatchQueue.main.async {
-
+                        // Get all the documents and create books
                         self.books = snapshot.documents.map { d in
+                            
+                            // Create a book item for each document returned
                             return Books(
                                          isbn: d["isbn"] as? String ?? "",
                                          imageName: d["imageName"] as? String ?? "",

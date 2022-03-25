@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct MainList: View {
+    
     var body: some View {
-        NavigationView {
-            Text("MainList")
+        
+        VStack() {
+            
+            BookCardView()
+            Spacer()
         }
     }
 }

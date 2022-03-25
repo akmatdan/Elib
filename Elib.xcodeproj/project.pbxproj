@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F4186EAB996948F8C302447 /* Pods_Elib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B62E74F81A197F0A3731DD7 /* Pods_Elib.framework */; };
+		B4F0C3E8B34C29845CEFA48A /* Pods_Elib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6AB5ACC13A200F53C0B067 /* Pods_Elib.framework */; };
+		E30A218D27E4FFCD009D171A /* HomeImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */; };
 		E31DFF3527B123F900508E96 /* ElibApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF3427B123F900508E96 /* ElibApp.swift */; };
 		E31DFF3727B123F900508E96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF3627B123F900508E96 /* ContentView.swift */; };
 		E31DFF3927B1240000508E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31DFF3827B1240000508E96 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		E34058D927E4BC55005504ED /* GanreList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058D827E4BC55005504ED /* GanreList.swift */; };
 		E34058DB27E4BC84005504ED /* LibrariesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058DA27E4BC84005504ED /* LibrariesList.swift */; };
 		E34058DD27E4BF24005504ED /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058DC27E4BF24005504ED /* MainList.swift */; };
+		E34058DF27E4D614005504ED /* BookCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058DE27E4D614005504ED /* BookCardView.swift */; };
 		E3508FFF27CCAAC50049E637 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3508FFE27CCAAC50049E637 /* TabBar.swift */; };
 		E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */; };
 		E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E98827D2A55F00218B86 /* MyLibraryView.swift */; };
@@ -33,15 +35,17 @@
 		E370E9BB27D889AB00218B86 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B827D889AA00218B86 /* Raleway-Regular.ttf */; };
 		E370E9BC27D889AB00218B86 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */; };
 		E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */; };
+		E39A222327EDA26B008951B5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A222227EDA26A008951B5 /* ImagePicker.swift */; };
 		E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D2F0927DA7A7000EE4A00 /* LoginView.swift */; };
 		E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */; };
 		E3E51C2827DC4E660075FF89 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2727DC4E660075FF89 /* CustomCorners.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B62E74F81A197F0A3731DD7 /* Pods_Elib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75DD016563ED1B92CBE3CDEE /* Pods-Elib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elib.debug.xcconfig"; path = "Target Support Files/Pods-Elib/Pods-Elib.debug.xcconfig"; sourceTree = "<group>"; };
-		813510FF5B764B2328A4C93A /* Pods-Elib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elib.release.xcconfig"; path = "Target Support Files/Pods-Elib/Pods-Elib.release.xcconfig"; sourceTree = "<group>"; };
+		6453FD56521A16CB5D3EBA86 /* Pods-Elib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elib.debug.xcconfig"; path = "Target Support Files/Pods-Elib/Pods-Elib.debug.xcconfig"; sourceTree = "<group>"; };
+		CF6697FE394965DC2D39EFB3 /* Pods-Elib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elib.release.xcconfig"; path = "Target Support Files/Pods-Elib/Pods-Elib.release.xcconfig"; sourceTree = "<group>"; };
+		DC6AB5ACC13A200F53C0B067 /* Pods_Elib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageLoader.swift; sourceTree = "<group>"; };
 		E31DFF3127B123F900508E96 /* Elib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31DFF3427B123F900508E96 /* ElibApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElibApp.swift; sourceTree = "<group>"; };
 		E31DFF3627B123F900508E96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 		E34058D827E4BC55005504ED /* GanreList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanreList.swift; sourceTree = "<group>"; };
 		E34058DA27E4BC84005504ED /* LibrariesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesList.swift; sourceTree = "<group>"; };
 		E34058DC27E4BF24005504ED /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
+		E34058DE27E4D614005504ED /* BookCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCardView.swift; sourceTree = "<group>"; };
 		E3508FFE27CCAAC50049E637 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationBar.swift; sourceTree = "<group>"; };
 		E370E98827D2A55F00218B86 /* MyLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryView.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 		E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		E370E9BD27D88A0B00218B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		E39A222227EDA26A008951B5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E39D2F0927DA7A7000EE4A00 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E3E51C2727DC4E660075FF89 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
@@ -79,28 +85,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				E370E9B327D69A9500218B86 /* SDWebImageSwiftUI in Frameworks */,
-				4F4186EAB996948F8C302447 /* Pods_Elib.framework in Frameworks */,
+				B4F0C3E8B34C29845CEFA48A /* Pods_Elib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		764E43A0CCC1812443A2C41E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5B62E74F81A197F0A3731DD7 /* Pods_Elib.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A246D56E4D6B5D8803C444C2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				75DD016563ED1B92CBE3CDEE /* Pods-Elib.debug.xcconfig */,
-				813510FF5B764B2328A4C93A /* Pods-Elib.release.xcconfig */,
+				6453FD56521A16CB5D3EBA86 /* Pods-Elib.debug.xcconfig */,
+				CF6697FE394965DC2D39EFB3 /* Pods-Elib.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C94C334AC468D338EBDE4E62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC6AB5ACC13A200F53C0B067 /* Pods_Elib.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E31DFF2827B123F900508E96 = {
@@ -109,7 +115,7 @@
 				E31DFF3327B123F900508E96 /* Elib */,
 				E31DFF3227B123F900508E96 /* Products */,
 				A246D56E4D6B5D8803C444C2 /* Pods */,
-				764E43A0CCC1812443A2C41E /* Frameworks */,
+				C94C334AC468D338EBDE4E62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +162,7 @@
 				E34058D827E4BC55005504ED /* GanreList.swift */,
 				E34058DA27E4BC84005504ED /* LibrariesList.swift */,
 				E34058DC27E4BF24005504ED /* MainList.swift */,
+				E34058DE27E4D614005504ED /* BookCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -189,6 +196,8 @@
 				E370E9A927D6674E00218B86 /* ImageLoader.swift */,
 				E370E9B427D6A89B00218B86 /* DetailImageLoader.swift */,
 				E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */,
+				E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */,
+				E39A222227EDA26A008951B5 /* ImagePicker.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,11 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E31DFF3F27B1240000508E96 /* Build configuration list for PBXNativeTarget "Elib" */;
 			buildPhases = (
-				1FECC8355491669042874592 /* [CP] Check Pods Manifest.lock */,
+				D1CCAD5F09903863310045A4 /* [CP] Check Pods Manifest.lock */,
 				E31DFF2D27B123F900508E96 /* Sources */,
 				E31DFF2E27B123F900508E96 /* Frameworks */,
 				E31DFF2F27B123F900508E96 /* Resources */,
-				6AE67E6089FCFFB42BE02179 /* [CP] Embed Pods Frameworks */,
+				381BF0B596C1D2D4311F8D0C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,7 +271,7 @@
 			);
 			mainGroup = E31DFF2827B123F900508E96;
 			packageReferences = (
-				E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */,
 			);
 			productRefGroup = E31DFF3227B123F900508E96 /* Products */;
 			projectDirPath = "";
@@ -290,7 +299,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1FECC8355491669042874592 /* [CP] Check Pods Manifest.lock */ = {
+		381BF0B596C1D2D4311F8D0C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1CCAD5F09903863310045A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -312,23 +338,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6AE67E6089FCFFB42BE02179 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -341,6 +350,7 @@
 				E31DFF4827B13B3100508E96 /* SearchBooksView.swift in Sources */,
 				E31DFF3727B123F900508E96 /* ContentView.swift in Sources */,
 				E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */,
+				E30A218D27E4FFCD009D171A /* HomeImageLoader.swift in Sources */,
 				E31DFF3527B123F900508E96 /* ElibApp.swift in Sources */,
 				E370E98B27D2A56D00218B86 /* ProfileView.swift in Sources */,
 				E34058DD27E4BF24005504ED /* MainList.swift in Sources */,
@@ -349,12 +359,14 @@
 				E31DFF6027B4BF9500508E96 /* BooksViewModel.swift in Sources */,
 				E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */,
 				E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */,
+				E34058DF27E4D614005504ED /* BookCardView.swift in Sources */,
 				E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */,
 				E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */,
 				E31DFF4A27B13B7900508E96 /* Books.swift in Sources */,
 				E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */,
 				E370E9AA27D6674E00218B86 /* ImageLoader.swift in Sources */,
 				E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */,
+				E39A222327EDA26B008951B5 /* ImagePicker.swift in Sources */,
 				E370E9B527D6A89B00218B86 /* DetailImageLoader.swift in Sources */,
 				E34058D927E4BC55005504ED /* GanreList.swift in Sources */,
 			);
@@ -481,7 +493,7 @@
 		};
 		E31DFF4027B1240000508E96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75DD016563ED1B92CBE3CDEE /* Pods-Elib.debug.xcconfig */;
+			baseConfigurationReference = 6453FD56521A16CB5D3EBA86 /* Pods-Elib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -514,7 +526,7 @@
 		};
 		E31DFF4127B1240000508E96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 813510FF5B764B2328A4C93A /* Pods-Elib.release.xcconfig */;
+			baseConfigurationReference = CF6697FE394965DC2D39EFB3 /* Pods-Elib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -569,7 +581,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+		E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -582,7 +594,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E370E9B227D69A9500218B86 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			package = E370E9B127D69A9400218B86 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */;
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
