@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct BookDetailView: View {
-
+    var book: Book
+    
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @GestureState private var dragOffset = CGSize.zero
     
-    var book: Books
+    @ObservedObject var model = BooksViewModel()
     
     var body: some View {
 

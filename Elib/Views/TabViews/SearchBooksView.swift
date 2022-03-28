@@ -39,12 +39,15 @@ struct SearchBooksView: View {
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
-                        
-                            VStack(alignment: .leading, spacing: 5) {
-                                Image(systemName: "heart")
-                                    .frame(width: 20, height: 30)
-                                Spacer()
-                            }
+                            
+//                            VStack(alignment: .leading, spacing: 5) {
+//                                Button(action: {
+//                                    model.deleteData(bookToDelete: books)
+//                                }, label: {
+//                                    Image(systemName: "minus.circle")
+//                                })
+//                                Spacer()
+//                            }
                         }
                     }
                 }
@@ -55,7 +58,7 @@ struct SearchBooksView: View {
         }.hiddenNavigationBarStyle()
     }
     
-    var filteredBooks: [Books] {
+    var filteredBooks: [Book] {
         if searchText.isEmpty {
             return model.books
         } else {

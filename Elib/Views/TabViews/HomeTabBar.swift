@@ -26,7 +26,7 @@ struct HomeTabBar: View {
                         Spacer()
                             Text("\(tabBarImageNames[num])")
                                 .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : .init(white: 0.7))
+                                .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : Color.black.opacity(0.3))
                                 .padding(.bottom, 10)
                                 .overlay(
                                     ZStack {

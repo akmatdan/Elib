@@ -55,7 +55,7 @@ struct TabBar: View {
                         } else {
                             Image(systemName: tabBarImageNames[num])
                                 .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : .init(white: 0.7))
+                                .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : Color.black.opacity(0.3))
                         }
                         Spacer()
                     })

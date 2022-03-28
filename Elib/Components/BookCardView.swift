@@ -13,14 +13,14 @@ struct BookCardView: View {
     @ObservedObject var model = BooksViewModel()
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             Text("Popular books")
                 .font(.custom(customFont, size: 18))
                 .fontWeight(.semibold)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal,10)
             
-            ScrollView(.horizontal, showsIndicators: false){
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(model.books, id: \.self) { books in
                         VStack {
@@ -39,6 +39,11 @@ struct BookCardView: View {
                 }
                 .onAppear() {
                     self.model.fetchData()
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        
+                    }
                 }
             }
             

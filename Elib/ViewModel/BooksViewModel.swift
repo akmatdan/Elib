@@ -10,8 +10,33 @@ import FirebaseFirestore
 
 class BooksViewModel: ObservableObject {
 
-    @Published var books = [Books]()
+    @Published var books = [Book]()
 
+    func deleteData(bookToDelete: Book) {
+        
+        // Get ref to the db
+        let db = Firestore.firestore()
+        
+        // Specify the doc to delete
+        db.collection("books").document(bookToDelete.id).delete { error in
+            
+            // Check for errors
+            if error == nil {
+                
+                // Update UI from the main thread
+                DispatchQueue.main.async {
+                    
+                    // Remove the book that was just deleted
+                    self.books.removeAll { book in
+                        
+                        // Check for the book to remove
+                        return book.id == bookToDelete.id
+                    }
+                }
+            }
+        }
+    }
+    
     func addData(isbn: String, title: String, author: String, year: String, description: String) {
         
         // Get ref to the db
@@ -44,7 +69,7 @@ class BooksViewModel: ObservableObject {
                         self.books = snapshot.documents.map { d in
                             
                             // Create a book item for each document returned
-                            return Books(
+                            return Book(
                                          isbn: d["isbn"] as? String ?? "",
                                          imageName: d["imageName"] as? String ?? "",
                                          title: d["title"] as? String ?? "",
