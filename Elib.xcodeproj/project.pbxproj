@@ -26,7 +26,7 @@
 		E34058DF27E4D614005504ED /* BookCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058DE27E4D614005504ED /* BookCardView.swift */; };
 		E3508FFF27CCAAC50049E637 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3508FFE27CCAAC50049E637 /* TabBar.swift */; };
 		E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */; };
-		E366D3AF27F1B8ED0008E607 /* SharedDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366D3AE27F1B8ED0008E607 /* SharedDataModel.swift */; };
+		E366D3B327F233EA0008E607 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366D3B227F233EA0008E607 /* HomeView.swift */; };
 		E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E98827D2A55F00218B86 /* MyLibraryView.swift */; };
 		E370E98B27D2A56D00218B86 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E98A27D2A56D00218B86 /* ProfileView.swift */; };
 		E370E9AA27D6674E00218B86 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9A927D6674E00218B86 /* ImageLoader.swift */; };
@@ -66,7 +66,7 @@
 		E34058DE27E4D614005504ED /* BookCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCardView.swift; sourceTree = "<group>"; };
 		E3508FFE27CCAAC50049E637 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationBar.swift; sourceTree = "<group>"; };
-		E366D3AE27F1B8ED0008E607 /* SharedDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataModel.swift; sourceTree = "<group>"; };
+		E366D3B227F233EA0008E607 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E370E98827D2A55F00218B86 /* MyLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryView.swift; sourceTree = "<group>"; };
 		E370E98A27D2A56D00218B86 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E370E9A927D6674E00218B86 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -163,6 +163,7 @@
 				E366D3B127F1BF490008E607 /* HomeUpperTabViews */,
 				E31DFF4327B1245300508E96 /* SearchBar.swift */,
 				E3508FFE27CCAAC50049E637 /* TabBar.swift */,
+				E34058D427E4B5A0005504ED /* HomeTabBar.swift */,
 				E34058DE27E4D614005504ED /* BookCardView.swift */,
 				E31DFF4B27B2E75300508E96 /* BookDetailView.swift */,
 			);
@@ -197,7 +198,6 @@
 				E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */,
 				E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */,
 				E39A222227EDA26A008951B5 /* ImagePicker.swift */,
-				E366D3AE27F1B8ED0008E607 /* SharedDataModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 		E366D3B027F1BF140008E607 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
-				E34058D427E4B5A0005504ED /* HomeTabBar.swift */,
+				E366D3B227F233EA0008E607 /* HomeView.swift */,
 				E31DFF4727B13B3100508E96 /* SearchBooksView.swift */,
 				E39A222427EDC09D008951B5 /* AddBookView.swift */,
 				E370E98827D2A55F00218B86 /* MyLibraryView.swift */,
@@ -367,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E366D3B327F233EA0008E607 /* HomeView.swift in Sources */,
 				E34058DB27E4BC84005504ED /* LibrariesList.swift in Sources */,
 				E3E51C2827DC4E660075FF89 /* CustomCorners.swift in Sources */,
 				E31DFF4827B13B3100508E96 /* SearchBooksView.swift in Sources */,
@@ -383,7 +384,6 @@
 				E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */,
 				E39A222527EDC09D008951B5 /* AddBookView.swift in Sources */,
 				E34058DF27E4D614005504ED /* BookCardView.swift in Sources */,
-				E366D3AF27F1B8ED0008E607 /* SharedDataModel.swift in Sources */,
 				E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */,
 				E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */,
 				E31DFF4A27B13B7900508E96 /* Book.swift in Sources */,

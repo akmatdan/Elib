@@ -40,6 +40,7 @@ struct SearchBooksView: View {
                                     .foregroundColor(.secondary)
                             }
                             
+                            // Deleting button
 //                            VStack(alignment: .leading, spacing: 5) {
 //                                Button(action: {
 //                                    model.deleteData(bookToDelete: books)
@@ -52,10 +53,11 @@ struct SearchBooksView: View {
                     }
                 }
             }
+            .background(Color(.systemGray6))
             .onAppear() {
                 model.fetchData()
             }
-        }.hiddenNavigationBarStyle()
+        }.navigationBarHidden(true)
     }
     
     var filteredBooks: [Book] {

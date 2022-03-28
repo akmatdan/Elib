@@ -21,7 +21,7 @@ struct TabBar: View {
                 Spacer()
                 switch selectedIndex {
                 case 0:
-                    HomeTabBar()
+                    HomeView()
                     
                 case 1:
                     SearchBooksView()

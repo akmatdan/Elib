@@ -14,7 +14,7 @@ struct BookCardView: View {
     
     var body: some View {
         ScrollView {
-            Text("Popular books")
+            Text("New books")
                 .font(.custom(customFont, size: 20))
                 .fontWeight(.semibold)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

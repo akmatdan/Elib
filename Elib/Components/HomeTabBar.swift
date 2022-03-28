@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct HomeTabBar: View {
-    
-    @State var searchText = ""
+
     @State var selectedIndex = 1
-    @State var shouldShowModel = false
     
     let tabBarImageNames = ["Ganre", "Books to read", "Libraries"]
     
     var body: some View {
-        NavigationView {
+        ScrollView {
             VStack(spacing: 0) {
+                
+                // SelectedIndex of TabBar
                 HStack {
                     ForEach(0..<3) { num in
                         Button(action: {
@@ -25,7 +25,8 @@ struct HomeTabBar: View {
                         }, label: {
                             Spacer()
                                 Text("\(tabBarImageNames[num])")
-                                    .font(.system(size: 18, weight: .bold))
+                                    .font(.custom(customFont, size: 14))
+                                    .fontWeight(.semibold)
                                     .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : .init(white: 0.7))
                                     .padding(.bottom, 10)
                                     .overlay(
@@ -41,8 +42,6 @@ struct HomeTabBar: View {
                         })
                     }
                 }
-                Spacer()
-                
                 ZStack {
                     
                     switch selectedIndex {
@@ -56,9 +55,12 @@ struct HomeTabBar: View {
                         LibrariesList()
                     }
                 }
-            }.background(Color(.systemGray6))
-                .navigationBarHidden(true)
+                
+                Spacer()
+            }
         }
+        .background(Color(.systemGray6))
+        .navigationBarHidden(true)
     }
 }
 

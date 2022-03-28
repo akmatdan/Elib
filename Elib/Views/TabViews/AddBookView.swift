@@ -25,7 +25,7 @@ struct AddBookView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView{
+            ScrollView(showsIndicators: false) {
                 
                VStack {
                    
@@ -53,7 +53,7 @@ struct AddBookView: View {
                     ImagePicker(selectedImage: $selectedImage, isPickerShowign: $isPickerShowing )
                 }
                     
-                VStack(spacing: 10) {
+                VStack(spacing: 15) {
                     TextField("ISBN", text: $isbn)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("title", text: $title)
@@ -103,11 +103,13 @@ struct AddBookView: View {
                         .background(Color(red: 0.2, green: 0.0, blue: 0.7))
                         .cornerRadius(15)
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+                        .padding(.vertical, 10)
                 })
             }
+            .background(Color(.systemGray6))
         }
-        .hiddenNavigationBarStyle()
-        .padding(30)
+        .navigationBarHidden(true)
+        .padding(.horizontal, 25)
         .background(Color(.systemGray6))
     }
     
