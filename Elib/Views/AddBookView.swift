@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseStorage
 
 struct AddBookView: View {
     
@@ -53,8 +54,6 @@ struct AddBookView: View {
                 }
                     
                 VStack(spacing: 10) {
-                    
-
                     TextField("ISBN", text: $isbn)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("title", text: $title)
@@ -66,18 +65,21 @@ struct AddBookView: View {
                     TextField("description", text: $description)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    Button {
-                        model.addData(isbn: isbn, title: title, author: author, year: year, description: description)
-                    } label: {
-                        Text("Add Book")
-                            .font(.custom(customFont, size: 17).bold())
-                            .fontWeight(.semibold)
-                            .padding(.vertical, 20)
-                            .frame(maxWidth: .infinity)
-                            .foregroundColor(Color.white)
-                            .background(Color(red: 0.2, green: 0.0, blue: 0.7))
-                            .cornerRadius(15)
-                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+                    if selectedImage != nil {
+                        Button {
+                            model.addData(isbn: isbn, title: title, author: author, year: year, description: description)
+                            uploadPhoto()
+                        } label: {
+                            Text("Add Book")
+                                .font(.custom(customFont, size: 17).bold())
+                                .fontWeight(.semibold)
+                                .padding(.vertical, 20)
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(Color.white)
+                                .background(Color(red: 0.2, green: 0.0, blue: 0.7))
+                                .cornerRadius(15)
+                                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+                        }
                     }
                 }
                     
@@ -105,6 +107,35 @@ struct AddBookView: View {
             }
         }.hiddenNavigationBarStyle()
             .padding(30)
+    }
+    
+    func uploadPhoto() {
+        
+        // Make sure that the selected image isn't nil
+        guard selectedImage != nil else { return }
+        
+        // Create storage reference
+        let storageRef = Storage.storage().reference()
+         
+        // Turn our image into data
+        let imageData = selectedImage!.jpegData(compressionQuality: 0.8)
+        
+        // Check that we were able to convert it to data
+        guard imageData != nil else { return }
+        
+        // Specify the file path and name
+        let fileRef = storageRef.child("booksImages/\(UUID().uuidString).jpg")
+        
+        // Upload that data
+        let uploadImage = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+            
+            // Check for error
+            if error == nil && metadata != nil {
+                
+                // TODO: Save a reference to the file in Firestore DB
+                
+            }
+        }
     }
 }
 
