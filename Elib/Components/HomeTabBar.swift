@@ -25,7 +25,7 @@ struct HomeTabBar: View {
                         }, label: {
                             Spacer()
                                 Text("\(tabBarImageNames[num])")
-                                    .font(.custom(customFont, size: 14))
+                                    .font(.custom(customFont, size: 16))
                                     .fontWeight(.semibold)
                                     .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : .init(white: 0.7))
                                     .padding(.bottom, 10)
