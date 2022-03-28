@@ -10,11 +10,17 @@ import SwiftUI
 // HomeView
 struct ContentView: View {
     
+    // Log status
+    @AppStorage("Log_Status") var log_Status: Bool = false
+    
     var body: some View {
         
-        VStack {
-            TabBar()
-//            OnBoardingView()
+        Group {
+            if log_Status{
+                TabBar()
+            } else {
+                OnBoardingView()
+            }
         }
     }
 }

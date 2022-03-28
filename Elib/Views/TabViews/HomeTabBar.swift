@@ -16,48 +16,49 @@ struct HomeTabBar: View {
     let tabBarImageNames = ["Ganre", "Books to read", "Libraries"]
     
     var body: some View {
-        VStack(spacing: 0) {
-           
-            HStack {
-                ForEach(0..<3) {num in
-                    Button(action: {
-                        selectedIndex = num
-                    }, label: {
-                        Spacer()
-                            Text("\(tabBarImageNames[num])")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : Color.black.opacity(0.3))
-                                .padding(.bottom, 10)
-                                .overlay(
-                                    ZStack {
-                                        if selectedIndex == num {
-                                            Capsule()
-                                                .fill(Color(red: 0.2, green: 0.0, blue: 0.7))
-                                                .frame(height: 2)
-                                        }
-                                    }
-                                        ,alignment: .bottom
-                                )
-                        Spacer()
-                    })
+        NavigationView {
+            VStack(spacing: 0) {
+                HStack {
+                    ForEach(0..<3) { num in
+                        Button(action: {
+                            selectedIndex = num
+                        }, label: {
+                            Spacer()
+                                Text("\(tabBarImageNames[num])")
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : .init(white: 0.7))
+                                    .padding(.bottom, 10)
+                                    .overlay(
+                                        ZStack {
+                                            if selectedIndex == num {
+                                                Capsule()
+                                                    .fill(Color(red: 0.2, green: 0.0, blue: 0.7))
+                                                    .frame(height: 2)
+                                            }
+                                        },alignment: .bottom
+                                    )
+                            Spacer()
+                        })
+                    }
                 }
-            }
-            Spacer()
-            
-            ZStack {
+                Spacer()
                 
-                switch selectedIndex {
-                case 0:
-                    GanreList()
+                ZStack {
                     
-                case 1:
-                    MainList()
-                    
-                default:
-                    LibrariesList()
+                    switch selectedIndex {
+                    case 0:
+                        GanreList()
+                        
+                    case 1:
+                        MainList()
+                        
+                    default:
+                        LibrariesList()
+                    }
                 }
-            }
-        }.background(Color.white)
+            }.background(Color(.systemGray6))
+                .navigationBarHidden(true)
+        }
     }
 }
 

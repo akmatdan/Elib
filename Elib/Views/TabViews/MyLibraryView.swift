@@ -14,6 +14,7 @@ struct MyLibraryView: View {
                 Text("MyLibraryView")
             }
         }
+        .background(Color(.systemGray6))
     }
 }
 

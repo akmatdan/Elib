@@ -39,6 +39,7 @@ struct TabBar: View {
             
             Divider()
                 .padding(.bottom, 8)
+                .background(Color(.systemGray6))
             
             HStack {
                 ForEach(0..<5) {num in
@@ -61,6 +62,7 @@ struct TabBar: View {
                     })
                 }
             }
+            .background(Color(.systemGray6))
         }
     }
 }

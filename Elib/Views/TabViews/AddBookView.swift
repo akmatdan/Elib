@@ -105,8 +105,10 @@ struct AddBookView: View {
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
                 })
             }
-        }.hiddenNavigationBarStyle()
-            .padding(30)
+        }
+        .hiddenNavigationBarStyle()
+        .padding(30)
+        .background(Color(.systemGray6))
     }
     
     func uploadPhoto() {

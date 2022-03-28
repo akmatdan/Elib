@@ -15,7 +15,7 @@ struct BookCardView: View {
     var body: some View {
         ScrollView {
             Text("Popular books")
-                .font(.custom(customFont, size: 18))
+                .font(.custom(customFont, size: 20))
                 .fontWeight(.semibold)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal,10)
@@ -35,7 +35,7 @@ struct BookCardView: View {
                     }
                         .background(Color.white)
                         .cornerRadius(10)
-                        .padding(.trailing)
+                        .padding(.horizontal, 10)
                 }
                 .onAppear() {
                     self.model.fetchData()
@@ -47,8 +47,11 @@ struct BookCardView: View {
                 }
             }
             
+            Divider()
+                .padding()
+            
             Text("Popular books")
-                .font(.custom(customFont, size: 18))
+                .font(.custom(customFont, size: 20))
                 .fontWeight(.semibold)
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal,10)
@@ -68,13 +71,14 @@ struct BookCardView: View {
                     }
                         .background(Color.white)
                         .cornerRadius(10)
-                        .padding(.trailing)
+                        .padding(.horizontal, 10)
                 }
                 .onAppear() {
                     self.model.fetchData()
                 }
             }
         }
+        .background(Color(.systemGray6))
     }
 }
 

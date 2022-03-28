@@ -22,22 +22,24 @@ struct HomeImageLoader: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 190)
-                    .cornerRadius(10)
                     .padding()
             } else {
                 Loader()
             }
         }
         .onAppear() {
-            let storage = Storage.storage().reference()
-            storage.child("\(url)").downloadURL { url, err in
-                
-                if err != nil {
-                    print((err?.localizedDescription)!)
-                    return
+            DispatchQueue.main.async {
+                let storage = Storage.storage().reference()
+                storage.child("\(url)").downloadURL { url, err in
+                    
+                    if err != nil {
+                        print((err?.localizedDescription)!)
+                        return
+                    }
+                    self.url = "\(url!)"
                 }
-                self.url = "\(url!)"
             }
+            
         }
     }
 }

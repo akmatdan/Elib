@@ -10,7 +10,10 @@ import SwiftUI
 struct GanreList: View {
     var body: some View {
         NavigationView {
-            Text("GanreList")
+            VStack {
+                Text("GanreList")
+            }
+               
         }
     }
 }

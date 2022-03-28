@@ -15,6 +15,7 @@ struct LibrariesList: View {
                 Spacer()
             }
         }
+        .background(Color(.systemGray6))
     }
 }
 

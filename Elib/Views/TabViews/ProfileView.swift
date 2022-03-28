@@ -14,6 +14,7 @@ struct ProfileView: View {
                 Text("ProfileView")
             }
         }
+        .background(Color(.systemGray6))
     }
 }
 
