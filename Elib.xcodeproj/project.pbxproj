@@ -192,11 +192,9 @@
 		E31DFF5E27B4BF7600508E96 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E366D3B427F42A940008E607 /* ImageLoaders */,
 				E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */,
-				E370E9A927D6674E00218B86 /* ImageLoader.swift */,
-				E370E9B427D6A89B00218B86 /* DetailImageLoader.swift */,
 				E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */,
-				E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */,
 				E39A222227EDA26A008951B5 /* ImagePicker.swift */,
 			);
 			path = ViewModel;
@@ -231,6 +229,16 @@
 				E34058DA27E4BC84005504ED /* LibrariesList.swift */,
 			);
 			path = HomeUpperTabViews;
+			sourceTree = "<group>";
+		};
+		E366D3B427F42A940008E607 /* ImageLoaders */ = {
+			isa = PBXGroup;
+			children = (
+				E370E9A927D6674E00218B86 /* ImageLoader.swift */,
+				E370E9B427D6A89B00218B86 /* DetailImageLoader.swift */,
+				E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */,
+			);
+			path = ImageLoaders;
 			sourceTree = "<group>";
 		};
 		E370E9B627D8898100218B86 /* Fonts */ = {

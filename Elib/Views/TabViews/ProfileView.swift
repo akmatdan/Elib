@@ -13,8 +13,8 @@ struct ProfileView: View {
             ScrollView{
                 Text("ProfileView")
             }
+            .background(Color(.systemGray6))
         }
-        .background(Color(.systemGray6))
     }
 }
 

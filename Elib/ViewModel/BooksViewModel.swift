@@ -11,6 +11,10 @@ import FirebaseFirestore
 class BooksViewModel: ObservableObject {
 
     @Published var books = [Book]()
+    
+    // Detail books data:
+    @Published var detailBook: Book?
+    @Published var showDetailBook: Bool = false
 
     func deleteData(bookToDelete: Book) {
         

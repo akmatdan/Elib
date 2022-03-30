@@ -9,9 +9,10 @@ import SwiftUI
 
 struct MyLibraryView: View {
     var body: some View {
-        NavigationView {
-            ScrollView{
-                Text("MyLibraryView")
+        ScrollView(showsIndicators: false) {
+            
+                VStack {
+                    Text("MyLibraryView")
             }
         }
         .background(Color(.systemGray6))

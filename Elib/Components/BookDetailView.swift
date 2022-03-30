@@ -31,22 +31,22 @@ struct BookDetailView: View {
 
                     HStack(spacing: 40) {
                         Text("Author: \(book.author)")
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.secondary)
 
                         Text("Published: \(book.year)")
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.secondary)
 
                         Text("ISBN: \(book.isbn)")
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.secondary)
                     }
                     VStack {
                         Divider()
                         
                         Text("Description:")
-                            .font(.title3)
+                            .font(.title2)
                             .foregroundColor(.secondary)
                         
                         ScrollView {
@@ -60,5 +60,11 @@ struct BookDetailView: View {
                 }
             }
         }.hiddenNavigationBarStyle()
+    }
+}
+
+struct BookDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        BookDetailView(book: model.books)
     }
 }

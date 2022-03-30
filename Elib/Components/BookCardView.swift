@@ -23,19 +23,28 @@ struct BookCardView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(model.books, id: \.self) { books in
-                        VStack {
+                        VStack(spacing: 5) {
                             HomeImageLoader(url: books.imageName)
                             
                             Text(books.title)
                                 .font(.custom(customFont, size: 14))
                                 .fontWeight(.semibold)
                                 .lineLimit(2)
+                                .padding(.horizontal, 10)
+                                .frame(width: 160)
+                            
+                            Text(books.author)
+                                .font(.custom(customFont, size: 12))
+                                .lineLimit(2)
+                                .padding(.horizontal, 10)
                                 .padding(.bottom, 5)
                         }
                     }
+                    .frame(width: 180, height: 250)
                         .background(Color.white)
                         .cornerRadius(10)
-                        .padding(.horizontal, 10)
+                        .shadow(color: Color.black.opacity(0.2), radius: 3, x: 3, y: 3)
+                        .padding(5)
                 }
                 .onAppear() {
                     self.model.fetchData()
@@ -59,19 +68,28 @@ struct BookCardView: View {
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(model.books, id: \.self) { books in
-                        VStack {
+                        VStack(spacing: 5) {
                             HomeImageLoader(url: books.imageName)
                             
                             Text(books.title)
                                 .font(.custom(customFont, size: 14))
                                 .fontWeight(.semibold)
+                                .lineLimit(3)
+                                .padding(.horizontal, 10)
+                                .frame(width: 160)
+                            
+                            Text(books.author)
+                                .font(.custom(customFont, size: 12))
                                 .lineLimit(2)
+                                .padding(.horizontal, 10)
                                 .padding(.bottom, 5)
                         }
                     }
+                    .frame(width: 180, height: 250)
                         .background(Color.white)
                         .cornerRadius(10)
-                        .padding(.horizontal, 10)
+                        .shadow(color: Color.black.opacity(0.2), radius: 3, x: 3, y: 3)
+                        .padding(5)
                 }
                 .onAppear() {
                     self.model.fetchData()

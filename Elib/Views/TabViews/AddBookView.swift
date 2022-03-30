@@ -56,14 +56,15 @@ struct AddBookView: View {
                 VStack(spacing: 15) {
                     TextField("ISBN", text: $isbn)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("title", text: $title)
+                    TextField("Title", text: $title)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("author", text: $author)
+                    TextField("Author", text: $author)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("year", text: $year)
+                    TextField("Year", text: $year)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("description", text: $description)
+                    TextField("Description", text: $description)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
                     
                     if selectedImage != nil {
                         Button {

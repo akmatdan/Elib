@@ -21,7 +21,7 @@ struct HomeImageLoader: View {
                 AnimatedImage(url: URL(string: url)!)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 190)
+                    .frame(height: 150)
                     .padding()
             } else {
                 Loader()
