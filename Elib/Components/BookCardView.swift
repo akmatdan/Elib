@@ -23,6 +23,7 @@ struct BookCardView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(model.books, id: \.self) { books in
+                        
                         VStack(spacing: 5) {
                             HomeImageLoader(url: books.imageName)
                             

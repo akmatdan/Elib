@@ -20,8 +20,7 @@ struct DetailImageLoader: View {
                 AnimatedImage(url: URL(string: url)!)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 350)
-                    .cornerRadius(12)
+                    .frame(height: 300)
                     .padding(.top, -50)
             } else {
                 Loader()

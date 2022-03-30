@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBar: View {
     
     @State var selectedIndex = 0
+    @StateObject var sharedData: SharedDataModel = SharedDataModel()
     
     let tabBarImageNames = ["house", "magnifyingglass", "plus.square.fill", "book", "person"]
     

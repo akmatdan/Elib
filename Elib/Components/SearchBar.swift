@@ -16,8 +16,9 @@ struct SearchBar: View {
         
         HStack (spacing: 15) {
             TextField("Search ...", text: $searchText)
+                .font(.custom(customFont, size: 14))
                 .padding(10)
-                .padding(.horizontal, 25)
+                .padding(.horizontal, 35)
                 .background(Color(.white))
                 .foregroundColor(.black)
                 .cornerRadius(8)
@@ -51,6 +52,8 @@ struct SearchBar: View {
                     UIApplication.shared.dismissKeyboard()
                 }) {
                     Text("Cancel")
+                        .font(.custom(customFont, size: 14).bold())
+                        .foregroundColor(Color(.systemGray2))
             }
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
