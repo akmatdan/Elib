@@ -38,13 +38,14 @@ struct AddBookView: View {
                     Button {
                         isPickerShowing = true
                     } label: {
-                        VStack {
-                            Image(systemName: "plus.square")
+                        VStack(spacing: 20) {
+                            Image(systemName: "photo.fill")
                                 .font(.system(size: 32, weight: .bold))
                                 .foregroundColor(Color(.red))
                             Text("Select a Photo")
                                 .font(.system(size: 22, weight: .bold))
                                 .foregroundColor(Color.gray)
+                                .padding(.bottom, 20)
                         }
                     }
                 }

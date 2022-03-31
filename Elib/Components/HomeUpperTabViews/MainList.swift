@@ -9,18 +9,18 @@ import SwiftUI
 
 struct MainList: View {
     
+    @Namespace var animation
+    // Shared Data
+    @EnvironmentObject var sharedData: SharedDataModel
+    @StateObject var homeData: BooksViewModel = BooksViewModel()
+    
+    
     var body: some View {
         
         VStack() {
             
-            BookCardView()
+            BookCardView(animation: animation)
             Spacer()
         }
-    }
-}
-
-struct MainList_Previews: PreviewProvider {
-    static var previews: some View {
-        MainList()
     }
 }

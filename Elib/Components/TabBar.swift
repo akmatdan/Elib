@@ -9,63 +9,96 @@ import SwiftUI
 
 struct TabBar: View {
     
-    @State var selectedIndex = 0
     @StateObject var sharedData: SharedDataModel = SharedDataModel()
     
-    let tabBarImageNames = ["house", "magnifyingglass", "plus.square.fill", "book", "person"]
+    // Animation Namespace
+    @Namespace var animation
+    
+    @State var currentTab: Tab = .Home
+    
+    init() {
+        UITabBar.appearance().isHidden = true
+    }
     
     var body: some View {
-        VStack(spacing: 0) {
-            
-            ZStack {
+        
+        VStack {
+            TabView(selection: $currentTab) {
                 
-                Spacer()
-                switch selectedIndex {
-                case 0:
-                    HomeView()
-                    
-                case 1:
-                    SearchBooksView()
+                HomeView(animation: animation)
+                    .tag(Tab.Home)
+                    .environmentObject(sharedData)
                 
-                case 2:
-                    AddBookView()
-                    
-                case 3:
-                    MyLibraryView()
-
-                default:
-                    ProfileView()
-                }
+                SearchBooksView()
+                    .tag(Tab.Search)
+                
+                AddBookView()
+                    .tag(Tab.AddBook)
+                
+                MyLibraryView()
+                    .tag(Tab.MyLibrary)
+                
+                ProfileView()
+                    .tag(Tab.Profile)
             }
-            
-            Divider()
-                .padding(.bottom, 8)
-                .background(Color(.systemGray6))
             
             HStack {
-                ForEach(0..<5) {num in
-                    Button(action: {
-                        selectedIndex = num
-                    }, label: {
-                        Spacer()
+                ForEach(Tab.allCases, id: \.self) { tab in
+                    
+                    Button {
+                        currentTab = tab
+                    } label: {
                         
-                        if num == 2 {
-                            Image(systemName: tabBarImageNames[num])
-                                .font(.system(size: 32, weight: .bold))
-                                .foregroundColor(Color(.red))
+                        Image(systemName: tab.rawValue)
+                            .resizable()
+                            .renderingMode(.template)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                        // Shadow at bg
+                            .background(
+                                Color(red: 0.2, green: 0.0, blue: 0.7)
+                                    .opacity(0.1)
+                                    .cornerRadius(5)
+                                // Bluring
+                                    .blur(radius: 5)
+                                // Making little big
+                                    .padding(-7)
+                                    .opacity(currentTab == tab ? 1 : 0)
+                            )
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(currentTab == tab ? Color(red: 0.2, green: 0.0, blue: 0.7) : Color.black.opacity(0.3))
+                    }
 
-                        } else {
-                            Image(systemName: tabBarImageNames[num])
-                                .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : Color.black.opacity(0.3))
-                        }
-                        Spacer()
-                    })
                 }
             }
-            .background(Color(.systemGray6))
+            .padding([.horizontal, .top])
+            .padding(.bottom, 5)
         }
+        .overlay(
+            ZStack{
+                //DetailView
+                if let book = sharedData.detailBook, sharedData.showDetailBook {
+                    BookDetailView(book: book, animation: animation)
+                        .environmentObject(sharedData)
+                }
+            }
+        )
     }
+}
+
+// Tab cases, Iterable
+enum Tab: String, CaseIterable {
+    
+    // Raw Value Image name in asset
+    case Home = "books.vertical.fill"
+
+    case Search = "magnifyingglass"
+
+    case AddBook = "plus.square.fill"
+
+    case MyLibrary = "book.fill"
+
+    case Profile = "person.fill"
 }
 
 struct TabBar_Previews: PreviewProvider {

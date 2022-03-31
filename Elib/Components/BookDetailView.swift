@@ -9,10 +9,10 @@ import SwiftUI
 
 struct BookDetailView: View {
     
+    var book: Book
+    
     // For Matched Geometry Effect
     var animation: Namespace.ID
-    
-    var book: Book
     
     // Shared Data
     @EnvironmentObject var sharedData: SharedDataModel
@@ -26,7 +26,9 @@ struct BookDetailView: View {
                 // Title Bar
                 HStack {
                     Button {
-                        
+                        withAnimation(.easeInOut) {
+                            sharedData.showDetailBook = false
+                        }
                     } label: {
                         Image(systemName: "arrow.left")
                             .font(.title2)

@@ -12,6 +12,11 @@ struct BookCardView: View {
     @State var searchText = ""
     @ObservedObject var model = BooksViewModel()
     
+    var animation: Namespace.ID
+    
+    @EnvironmentObject var sharedData: SharedDataModel
+    
+    
     var body: some View {
         ScrollView {
             Text("New books")
@@ -25,7 +30,16 @@ struct BookCardView: View {
                     ForEach(model.books, id: \.self) { books in
                         
                         VStack(spacing: 5) {
-                            HomeImageLoader(url: books.imageName)
+                            
+                            // Adding Matched Geometry Effect
+                            ZStack {
+                                if sharedData.showDetailBook {
+                                    HomeImageLoader(url: books.imageName)
+                                } else {
+                                    HomeImageLoader(url: books.imageName)
+                                        .matchedGeometryEffect(id: "\(books.id)IMAGE", in: animation)
+                                }
+                            }
                             
                             Text(books.title)
                                 .font(.custom(customFont, size: 14))
@@ -40,6 +54,12 @@ struct BookCardView: View {
                                 .padding(.horizontal, 10)
                                 .padding(.bottom, 5)
                         }
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                sharedData.detailBook = books
+                                sharedData.showDetailBook = true
+                            }
+                        }
                     }
                     .frame(width: 180, height: 250)
                         .background(Color.white)
@@ -49,11 +69,6 @@ struct BookCardView: View {
                 }
                 .onAppear() {
                     self.model.fetchData()
-                }
-                .onTapGesture {
-                    withAnimation(.easeInOut) {
-                        
-                    }
                 }
             }
             
@@ -103,6 +118,6 @@ struct BookCardView: View {
 
 struct BookCardView_Previews: PreviewProvider {
     static var previews: some View {
-        BookCardView()
+        TabBar()
     }
 }
