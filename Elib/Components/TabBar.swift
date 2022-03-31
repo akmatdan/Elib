@@ -9,11 +9,6 @@ import SwiftUI
 
 struct TabBar: View {
     
-    @StateObject var sharedData: SharedDataModel = SharedDataModel()
-    
-    // Animation Namespace
-    @Namespace var animation
-    
     @State var currentTab: Tab = .Home
     
     init() {
@@ -25,9 +20,8 @@ struct TabBar: View {
         VStack {
             TabView(selection: $currentTab) {
                 
-                HomeView(animation: animation)
+                HomeView()
                     .tag(Tab.Home)
-                    .environmentObject(sharedData)
                 
                 SearchBooksView()
                     .tag(Tab.Search)
@@ -74,15 +68,6 @@ struct TabBar: View {
             .padding([.horizontal, .top])
             .padding(.bottom, 5)
         }
-        .overlay(
-            ZStack{
-                //DetailView
-                if let book = sharedData.detailBook, sharedData.showDetailBook {
-                    BookDetailView(book: book, animation: animation)
-                        .environmentObject(sharedData)
-                }
-            }
-        )
     }
 }
 

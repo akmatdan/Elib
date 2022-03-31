@@ -12,11 +12,6 @@ struct BookCardView: View {
     @State var searchText = ""
     @ObservedObject var model = BooksViewModel()
     
-    var animation: Namespace.ID
-    
-    @EnvironmentObject var sharedData: SharedDataModel
-    
-    
     var body: some View {
         ScrollView {
             Text("New books")
@@ -28,36 +23,25 @@ struct BookCardView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(model.books, id: \.self) { books in
-                        
-                        VStack(spacing: 5) {
-                            
-                            // Adding Matched Geometry Effect
-                            ZStack {
-                                if sharedData.showDetailBook {
-                                    HomeImageLoader(url: books.imageName)
-                                } else {
-                                    HomeImageLoader(url: books.imageName)
-                                        .matchedGeometryEffect(id: "\(books.id)IMAGE", in: animation)
-                                }
-                            }
-                            
-                            Text(books.title)
-                                .font(.custom(customFont, size: 14))
-                                .fontWeight(.semibold)
-                                .lineLimit(2)
-                                .padding(.horizontal, 10)
-                                .frame(width: 160)
-                            
-                            Text(books.author)
-                                .font(.custom(customFont, size: 12))
-                                .lineLimit(2)
-                                .padding(.horizontal, 10)
-                                .padding(.bottom, 5)
-                        }
-                        .onTapGesture {
-                            withAnimation(.easeInOut) {
-                                sharedData.detailBook = books
-                                sharedData.showDetailBook = true
+                        NavigationLink(destination: BookSearchDetailView(book: books)) {
+                            VStack(spacing: 5) {
+                                
+                                HomeImageLoader(url: books.imageName)
+                                    
+                                Text(books.title)
+                                    .font(.custom(customFont, size: 14))
+                                    .fontWeight(.semibold)
+                                    .lineLimit(2)
+                                    .padding(.horizontal, 10)
+                                    .frame(width: 160)
+                                    .foregroundColor(Color.black)
+                                
+                                Text(books.author)
+                                    .font(.custom(customFont, size: 12))
+                                    .lineLimit(2)
+                                    .padding(.horizontal, 10)
+                                    .padding(.bottom, 5)
+                                    .foregroundColor(Color.black)
                             }
                         }
                     }
@@ -84,21 +68,26 @@ struct BookCardView: View {
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(model.books, id: \.self) { books in
-                        VStack(spacing: 5) {
-                            HomeImageLoader(url: books.imageName)
-                            
-                            Text(books.title)
-                                .font(.custom(customFont, size: 14))
-                                .fontWeight(.semibold)
-                                .lineLimit(3)
-                                .padding(.horizontal, 10)
-                                .frame(width: 160)
-                            
-                            Text(books.author)
-                                .font(.custom(customFont, size: 12))
-                                .lineLimit(2)
-                                .padding(.horizontal, 10)
-                                .padding(.bottom, 5)
+                        NavigationLink(destination: BookSearchDetailView(book: books)) {
+                            VStack(spacing: 5) {
+                                
+                                HomeImageLoader(url: books.imageName)
+                                    
+                                Text(books.title)
+                                    .font(.custom(customFont, size: 14))
+                                    .fontWeight(.semibold)
+                                    .lineLimit(2)
+                                    .padding(.horizontal, 10)
+                                    .frame(width: 160)
+                                    .foregroundColor(Color.black)
+                                
+                                Text(books.author)
+                                    .font(.custom(customFont, size: 12))
+                                    .lineLimit(2)
+                                    .padding(.horizontal, 10)
+                                    .padding(.bottom, 5)
+                                    .foregroundColor(Color.black)
+                            }
                         }
                     }
                     .frame(width: 180, height: 250)

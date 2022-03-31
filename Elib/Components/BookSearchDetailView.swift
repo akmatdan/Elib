@@ -1,35 +1,29 @@
 //
-//  BookDetailView.swift
+//  BookSearchDetailView.swift
 //  Elib
 //
-//  Created by Daniil Akmatov on 9/2/22.
+//  Created by Daniil Akmatov on 31/3/22.
 //
 
 import SwiftUI
 
-struct BookDetailView: View {
+struct BookSearchDetailView: View {
     
     var book: Book
-    
-    // For Matched Geometry Effect
-    var animation: Namespace.ID
-    
-    // Shared Data
-    @EnvironmentObject var sharedData: SharedDataModel
     @ObservedObject var model = BooksViewModel()
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
+        
         VStack {
             
             // Title Bar and book Imge
             VStack {
                 
                 // Book Image
-                // Adding Matched Geometry Effect
                 DetailImageLoader(url: book.imageName)
-                    .matchedGeometryEffect(id: "\(book.id)IMAGE", in: animation)
+                    
             }
             .frame(height: getRect().height / 2.7)
             .padding(.top, 15)
@@ -54,6 +48,7 @@ struct BookDetailView: View {
                                 .foregroundColor(Color.black.opacity(0.7))
                                 .padding(.horizontal, 10)
                         }
+                    
                     }
                     
                     
@@ -141,4 +136,10 @@ struct BookDetailView: View {
                 }
             }
         }
+}
+
+struct BookSearchDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchBooksView()
+    }
 }

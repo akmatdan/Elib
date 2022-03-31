@@ -11,6 +11,8 @@ struct HiddenNavigationBar: ViewModifier {
     func body(content: Content) -> some View {
             content
             .navigationBarTitle("", displayMode: .inline)
+            .font(.title2)
+            .foregroundColor(Color.black.opacity(0.7))
         }
 }
 

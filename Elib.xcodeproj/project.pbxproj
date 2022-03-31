@@ -37,6 +37,7 @@
 		E370E9BB27D889AB00218B86 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B827D889AA00218B86 /* Raleway-Regular.ttf */; };
 		E370E9BC27D889AB00218B86 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */; };
 		E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */; };
+		E37864E227F5899E0001D287 /* BookSearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37864E127F5899E0001D287 /* BookSearchDetailView.swift */; };
 		E39A222327EDA26B008951B5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A222227EDA26A008951B5 /* ImagePicker.swift */; };
 		E39A222527EDC09D008951B5 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A222427EDC09D008951B5 /* AddBookView.swift */; };
 		E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D2F0927DA7A7000EE4A00 /* LoginView.swift */; };
@@ -78,6 +79,7 @@
 		E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		E370E9BD27D88A0B00218B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		E37864E127F5899E0001D287 /* BookSearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchDetailView.swift; sourceTree = "<group>"; };
 		E39A222227EDA26A008951B5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E39A222427EDC09D008951B5 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		E39D2F0927DA7A7000EE4A00 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				E34058D427E4B5A0005504ED /* HomeTabBar.swift */,
 				E34058DE27E4D614005504ED /* BookCardView.swift */,
 				E31DFF4B27B2E75300508E96 /* BookDetailView.swift */,
+				E37864E127F5899E0001D287 /* BookSearchDetailView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */,
 				E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */,
 				E39A222527EDC09D008951B5 /* AddBookView.swift in Sources */,
+				E37864E227F5899E0001D287 /* BookSearchDetailView.swift in Sources */,
 				E34058DF27E4D614005504ED /* BookCardView.swift in Sources */,
 				E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */,
 				E366D3B627F42E1F0008E607 /* SharedDataModel.swift in Sources */,

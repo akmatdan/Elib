@@ -19,7 +19,7 @@ struct MainList: View {
         
         VStack() {
             
-            BookCardView(animation: animation)
+            BookCardView()
             Spacer()
         }
     }

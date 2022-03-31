@@ -38,21 +38,26 @@ struct AddBookView: View {
                     Button {
                         isPickerShowing = true
                     } label: {
-                        VStack(spacing: 20) {
-                            Image(systemName: "photo.fill")
-                                .font(.system(size: 32, weight: .bold))
-                                .foregroundColor(Color(.red))
-                            Text("Select a Photo")
+                        if selectedImage != nil {
+                            Text("Change a photo")
                                 .font(.system(size: 22, weight: .bold))
                                 .foregroundColor(Color.gray)
                                 .padding(.bottom, 20)
+                        } else {
+                            VStack(spacing: 20) {
+                                Image(systemName: "photo.fill")
+                                    .font(.system(size: 32, weight: .bold))
+                                    .foregroundColor(Color(.gray))
+                                    .padding(.top, 10)
+                                Text("Select a photo")
+                                    .font(.system(size: 22, weight: .bold))
+                                    .foregroundColor(Color.gray)
+                                    .padding(.bottom, 20)
+                            }
                         }
                     }
                 }
-                .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
-                    // Image picker
-                    ImagePicker(selectedImage: $selectedImage, isPickerShowign: $isPickerShowing )
-                }
+                
                     
                 VStack(spacing: 15) {
                     TextField("ISBN", text: $isbn)
@@ -66,7 +71,7 @@ struct AddBookView: View {
                     TextField("Description", text: $description)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         
-                    
+                    // Add Book button
                     if selectedImage != nil {
                         Button {
                             model.addData(isbn: isbn, title: title, author: author, year: year, description: description)
@@ -83,8 +88,11 @@ struct AddBookView: View {
                                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
                         }
                     }
+                }.sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                    // Image picker
+                    ImagePicker(selectedImage: $selectedImage, isPickerShowign: $isPickerShowing )
                 }
-                    
+                    // Cancel button
                 Button(action: {
                     self.isEditing = false
                     selectedImage = nil

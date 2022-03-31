@@ -9,10 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-    var animation: Namespace.ID
-    
-    // Shared Data
-    @EnvironmentObject var sharedData: SharedDataModel
     @StateObject var homeData: BooksViewModel = BooksViewModel()
     
     var body: some View {

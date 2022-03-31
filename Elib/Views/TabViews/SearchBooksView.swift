@@ -21,28 +21,28 @@ struct SearchBooksView: View {
                     if let filteredBooks = filteredBooks {
                         List(filteredBooks, id: \.self) { books in
                             
-//                            NavigationLink(destination: BookDetailView(book: books)) {
-//                                HStack() {
-//                                    ImageLoader(url: books.imageName)
-//
-//                                    VStack(alignment: .leading, spacing: 5) {
-//
-//                                        Text(books.title)
-//                                            .fontWeight(.semibold)
-//                                            .lineLimit(2)
-//                                            .minimumScaleFactor(0.5)
-//                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-//
-//                                        Text(books.author)
-//                                            .font(.subheadline)
-//                                            .foregroundColor(.secondary)
-//
-//                                        Text(books.isbn)
-//                                            .font(.subheadline)
-//                                            .foregroundColor(.secondary)
-//                                    }
-//                                }
-//                            }
+                            NavigationLink(destination: BookSearchDetailView(book: books)) {
+                                HStack() {
+                                    ImageLoader(url: books.imageName)
+
+                                    VStack(alignment: .leading, spacing: 5) {
+
+                                        Text(books.title)
+                                            .fontWeight(.semibold)
+                                            .lineLimit(2)
+                                            .minimumScaleFactor(0.5)
+                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+
+                                        Text(books.author)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+
+                                        Text(books.isbn)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
+                                }
+                            }
                         }
                     } else {
                         VStack {
@@ -75,11 +75,4 @@ struct SearchBooksView: View {
         }
     }
 }
-
-struct SearchBooksView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBooksView()
-    }
-}
-
 
