@@ -37,11 +37,11 @@ class BooksViewModel: ObservableObject {
         }
     }
     
-    func addData(isbn: String, title: String, author: String, year: String, description: String) {
+    func addData(isbn: String, title: String, author: String, year: String, description: String, url: String) {
         
         // Get ref to the db
         let db = Firestore.firestore()
-        db.collection("books").addDocument(data: ["isbn": isbn, "title": title, "author": author, "year": year, "description": description]) { error in
+        db.collection("books").addDocument(data: ["isbn": isbn, "title": title, "author": author, "year": year, "description": description, url: "url"]) { error in
             
             if error == nil {
                 
@@ -75,7 +75,8 @@ class BooksViewModel: ObservableObject {
                                          title: d["title"] as? String ?? "",
                                          author: d["author"] as? String ?? "",
                                          year: d["year"] as? String ?? "",
-                                         description: d["description"] as? String ?? ""
+                                         description: d["description"] as? String ?? "",
+                                         url: d["url"] as? String ?? ""
                             )
                         }
                     }

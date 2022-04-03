@@ -15,7 +15,6 @@ struct BookDetailView: View {
     var animation: Namespace.ID
     
     // Shared Data
-    @EnvironmentObject var sharedData: SharedDataModel
     @ObservedObject var model = BooksViewModel()
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseStorage
 
 struct AddBookView: View {
@@ -22,6 +23,8 @@ struct AddBookView: View {
     @State var description = ""
     
     @State private var isEditing = false
+    
+    @State var retrivedImage = UIImage()
     
     var body: some View {
         NavigationView {
@@ -57,7 +60,6 @@ struct AddBookView: View {
                         }
                     }
                 }
-                
                     
                 VStack(spacing: 15) {
                     TextField("ISBN", text: $isbn)
@@ -74,7 +76,7 @@ struct AddBookView: View {
                     // Add Book button
                     if selectedImage != nil {
                         Button {
-                            model.addData(isbn: isbn, title: title, author: author, year: year, description: description)
+                            
                             uploadPhoto()
                         } label: {
                             Text("Add Book")
@@ -123,6 +125,7 @@ struct AddBookView: View {
         .background(Color(.systemGray6))
     }
     
+    // Uploading Photo and Data
     func uploadPhoto() {
         
         // Make sure that the selected image isn't nil
@@ -138,7 +141,8 @@ struct AddBookView: View {
         guard imageData != nil else { return }
         
         // Specify the file path and name
-        let fileRef = storageRef.child("booksImages/\(UUID().uuidString).jpg")
+        let path = "booksImages/\(UUID().uuidString).jpg"
+        let fileRef = storageRef.child(path)
         
         // Upload that data
         let uploadImage = fileRef.putData(imageData!, metadata: nil) { metadata, error in
@@ -146,10 +150,20 @@ struct AddBookView: View {
             // Check for error
             if error == nil && metadata != nil {
                 
-                // TODO: Save a reference to the file in Firestore DB
-                
+                // TODO: Save a reference to the file in Firestore DB with other data
+                let db = Firestore.firestore()
+                db.collection("books").document().setData(["url": path, "isbn": isbn, "title": title, "author": author, "year": year, "description": description])
             }
         }
+    }
+    
+    func retriveData() {
+        
+        // Get the data from the DB
+        
+        // Get the image data in storage for each image reference
+        
+        // Display the images
     }
 }
 
