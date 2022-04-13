@@ -9,35 +9,22 @@ import SwiftUI
 
 struct BookDetailView: View {
     
-    var book: Book
-    
-    // For Matched Geometry Effect
-    var animation: Namespace.ID
-    
     // Shared Data
     @ObservedObject var model = BooksViewModel()
-    
+    var book: Book
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
+        
         VStack {
-            
             // Title Bar and book Imge
-            VStack {
-                
-                // Book Image
-                // Adding Matched Geometry Effect
-                DetailImageLoader(url: book.imageName)
-                    .matchedGeometryEffect(id: "\(book.id)IMAGE", in: animation)
-            }
-            .frame(height: getRect().height / 2.7)
-            .padding(.top, 15)
+            DetailLoadImage(url: book.url)    
             
             // Data of book
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(alignment: .leading, spacing: 15) {
-                    
+
                     HStack {
                         Text(book.title)
                             .font(.custom(customFont, size: 20).bold())
@@ -56,7 +43,7 @@ struct BookDetailView: View {
                     }
                     
                     
-                    Text(book.author)
+                    Text("Author: \(book.author)")
                         .font(.custom(customFont, size: 18).bold())
                         .foregroundColor(Color.gray)
                     
@@ -111,7 +98,6 @@ struct BookDetailView: View {
                                     .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
                             )
                     }
-
                 }
                 .padding([.horizontal,.bottom,], 10)
                 .padding(.top, 25)
@@ -133,10 +119,10 @@ struct BookDetailView: View {
             self.presentationMode.wrappedValue.dismiss()
             }) {
                 HStack {
-                Image(systemName: "chevron.left") // set image here
-                    .aspectRatio(contentMode: .fit)
-                    .font(.title3)
-                    .foregroundColor(Color.black.opacity(0.7))
+                    Image(systemName: "chevron.left")
+                        .aspectRatio(contentMode: .fit)
+                        .font(.title3)
+                        .foregroundColor(Color.black.opacity(0.7))
                 }
             }
         }

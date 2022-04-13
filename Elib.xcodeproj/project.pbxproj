@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B4F0C3E8B34C29845CEFA48A /* Pods_Elib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6AB5ACC13A200F53C0B067 /* Pods_Elib.framework */; };
-		E30A218D27E4FFCD009D171A /* HomeImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */; };
 		E31DFF3527B123F900508E96 /* ElibApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF3427B123F900508E96 /* ElibApp.swift */; };
 		E31DFF3727B123F900508E96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF3627B123F900508E96 /* ContentView.swift */; };
 		E31DFF3927B1240000508E96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31DFF3827B1240000508E96 /* Assets.xcassets */; };
@@ -29,26 +28,25 @@
 		E366D3B327F233EA0008E607 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366D3B227F233EA0008E607 /* HomeView.swift */; };
 		E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E98827D2A55F00218B86 /* MyLibraryView.swift */; };
 		E370E98B27D2A56D00218B86 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E98A27D2A56D00218B86 /* ProfileView.swift */; };
-		E370E9AA27D6674E00218B86 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9A927D6674E00218B86 /* ImageLoader.swift */; };
 		E370E9B327D69A9500218B86 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E370E9B227D69A9500218B86 /* SDWebImageSwiftUI */; };
-		E370E9B527D6A89B00218B86 /* DetailImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9B427D6A89B00218B86 /* DetailImageLoader.swift */; };
 		E370E9BA27D889AB00218B86 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B727D889AA00218B86 /* Raleway-Bold.ttf */; };
 		E370E9BB27D889AB00218B86 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B827D889AA00218B86 /* Raleway-Regular.ttf */; };
 		E370E9BC27D889AB00218B86 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */; };
 		E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */; };
-		E37864E227F5899E0001D287 /* BookSearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37864E127F5899E0001D287 /* BookSearchDetailView.swift */; };
 		E39A222327EDA26B008951B5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A222227EDA26A008951B5 /* ImagePicker.swift */; };
 		E39A222527EDC09D008951B5 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A222427EDC09D008951B5 /* AddBookView.swift */; };
 		E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D2F0927DA7A7000EE4A00 /* LoginView.swift */; };
 		E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */; };
 		E3E51C2827DC4E660075FF89 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E51C2727DC4E660075FF89 /* CustomCorners.swift */; };
+		E3FCA8BF2802156E00F8BC8A /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCA8BE2802156E00F8BC8A /* LoadImage.swift */; };
+		E3FCA8C3280585D400F8BC8A /* DetailLoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCA8C2280585D300F8BC8A /* DetailLoadImage.swift */; };
+		E3FCA8C52806C27A00F8BC8A /* SearchLoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCA8C42806C27A00F8BC8A /* SearchLoadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6453FD56521A16CB5D3EBA86 /* Pods-Elib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elib.debug.xcconfig"; path = "Target Support Files/Pods-Elib/Pods-Elib.debug.xcconfig"; sourceTree = "<group>"; };
 		CF6697FE394965DC2D39EFB3 /* Pods-Elib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elib.release.xcconfig"; path = "Target Support Files/Pods-Elib/Pods-Elib.release.xcconfig"; sourceTree = "<group>"; };
 		DC6AB5ACC13A200F53C0B067 /* Pods_Elib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageLoader.swift; sourceTree = "<group>"; };
 		E31DFF3127B123F900508E96 /* Elib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31DFF3427B123F900508E96 /* ElibApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElibApp.swift; sourceTree = "<group>"; };
 		E31DFF3627B123F900508E96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,19 +68,19 @@
 		E366D3B227F233EA0008E607 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E370E98827D2A55F00218B86 /* MyLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryView.swift; sourceTree = "<group>"; };
 		E370E98A27D2A56D00218B86 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		E370E9A927D6674E00218B86 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		E370E9B427D6A89B00218B86 /* DetailImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageLoader.swift; sourceTree = "<group>"; };
 		E370E9B727D889AA00218B86 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		E370E9B827D889AA00218B86 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
 		E370E9BD27D88A0B00218B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E370E9BE27D88B0B00218B86 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
-		E37864E127F5899E0001D287 /* BookSearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchDetailView.swift; sourceTree = "<group>"; };
 		E39A222227EDA26A008951B5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E39A222427EDC09D008951B5 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		E39D2F0927DA7A7000EE4A00 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E3E51C2727DC4E660075FF89 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		E3FCA8BE2802156E00F8BC8A /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
+		E3FCA8C2280585D300F8BC8A /* DetailLoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoadImage.swift; sourceTree = "<group>"; };
+		E3FCA8C42806C27A00F8BC8A /* SearchLoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLoadImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +166,6 @@
 				E34058D427E4B5A0005504ED /* HomeTabBar.swift */,
 				E34058DE27E4D614005504ED /* BookCardView.swift */,
 				E31DFF4B27B2E75300508E96 /* BookDetailView.swift */,
-				E37864E127F5899E0001D287 /* BookSearchDetailView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -195,10 +192,12 @@
 		E31DFF5E27B4BF7600508E96 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E366D3B427F42A940008E607 /* ImageLoaders */,
 				E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */,
 				E3E51C2527DC4BCD0075FF89 /* LoginViewModel.swift */,
 				E39A222227EDA26A008951B5 /* ImagePicker.swift */,
+				E3FCA8BE2802156E00F8BC8A /* LoadImage.swift */,
+				E3FCA8C2280585D300F8BC8A /* DetailLoadImage.swift */,
+				E3FCA8C42806C27A00F8BC8A /* SearchLoadImage.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -234,16 +233,6 @@
 			path = HomeUpperTabViews;
 			sourceTree = "<group>";
 		};
-		E366D3B427F42A940008E607 /* ImageLoaders */ = {
-			isa = PBXGroup;
-			children = (
-				E370E9A927D6674E00218B86 /* ImageLoader.swift */,
-				E370E9B427D6A89B00218B86 /* DetailImageLoader.swift */,
-				E30A218C27E4FFCC009D171A /* HomeImageLoader.swift */,
-			);
-			path = ImageLoaders;
-			sourceTree = "<group>";
-		};
 		E370E9B627D8898100218B86 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +255,7 @@
 				E31DFF2E27B123F900508E96 /* Frameworks */,
 				E31DFF2F27B123F900508E96 /* Resources */,
 				381BF0B596C1D2D4311F8D0C /* [CP] Embed Pods Frameworks */,
+				64522C1839B16A8E83954179 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,6 +339,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		64522C1839B16A8E83954179 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elib/Pods-Elib-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D1CCAD5F09903863310045A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,13 +385,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3FCA8C3280585D400F8BC8A /* DetailLoadImage.swift in Sources */,
 				E366D3B327F233EA0008E607 /* HomeView.swift in Sources */,
 				E34058DB27E4BC84005504ED /* LibrariesList.swift in Sources */,
 				E3E51C2827DC4E660075FF89 /* CustomCorners.swift in Sources */,
 				E31DFF4827B13B3100508E96 /* SearchBooksView.swift in Sources */,
 				E31DFF3727B123F900508E96 /* ContentView.swift in Sources */,
 				E370E9BF27D88B0B00218B86 /* OnBoardingView.swift in Sources */,
-				E30A218D27E4FFCD009D171A /* HomeImageLoader.swift in Sources */,
+				E3FCA8BF2802156E00F8BC8A /* LoadImage.swift in Sources */,
 				E31DFF3527B123F900508E96 /* ElibApp.swift in Sources */,
 				E370E98B27D2A56D00218B86 /* ProfileView.swift in Sources */,
 				E34058DD27E4BF24005504ED /* MainList.swift in Sources */,
@@ -394,17 +402,15 @@
 				E370E98927D2A56000218B86 /* MyLibraryView.swift in Sources */,
 				E31DFF4427B1245300508E96 /* SearchBar.swift in Sources */,
 				E39A222527EDC09D008951B5 /* AddBookView.swift in Sources */,
-				E37864E227F5899E0001D287 /* BookSearchDetailView.swift in Sources */,
 				E34058DF27E4D614005504ED /* BookCardView.swift in Sources */,
 				E3E51C2627DC4BCD0075FF89 /* LoginViewModel.swift in Sources */,
 				E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */,
 				E31DFF4A27B13B7900508E96 /* Book.swift in Sources */,
 				E350900427CE8CE30049E637 /* HiddenNavigationBar.swift in Sources */,
-				E370E9AA27D6674E00218B86 /* ImageLoader.swift in Sources */,
 				E39D2F0A27DA7A7000EE4A00 /* LoginView.swift in Sources */,
 				E39A222327EDA26B008951B5 /* ImagePicker.swift in Sources */,
-				E370E9B527D6A89B00218B86 /* DetailImageLoader.swift in Sources */,
 				E34058D927E4BC55005504ED /* GanreList.swift in Sources */,
+				E3FCA8C52806C27A00F8BC8A /* SearchLoadImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+import FirebaseStorage
 
 struct BookCardView: View {
     
@@ -23,10 +25,10 @@ struct BookCardView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(model.books, id: \.self) { books in
-                        NavigationLink(destination: BookSearchDetailView(book: books)) {
+                        NavigationLink(destination: BookDetailView(book: books)) {
                             VStack(spacing: 5) {
                                 
-                                HomeImageLoader(url: books.imageName)
+                                LoadImage(url: "\(books.url)")
                                     
                                 Text(books.title)
                                     .font(.custom(customFont, size: 14))
@@ -68,11 +70,11 @@ struct BookCardView: View {
             ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(model.books, id: \.self) { books in
-                        NavigationLink(destination: BookSearchDetailView(book: books)) {
+                        NavigationLink(destination: BookDetailView(book: books)) {
                             VStack(spacing: 5) {
-                                
-                                HomeImageLoader(url: books.imageName)
-                                    
+
+                                LoadImage(url: "\(books.url)")
+
                                 Text(books.title)
                                     .font(.custom(customFont, size: 14))
                                     .fontWeight(.semibold)
@@ -80,7 +82,7 @@ struct BookCardView: View {
                                     .padding(.horizontal, 10)
                                     .frame(width: 160)
                                     .foregroundColor(Color.black)
-                                
+
                                 Text(books.author)
                                     .font(.custom(customFont, size: 12))
                                     .lineLimit(2)

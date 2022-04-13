@@ -11,5 +11,6 @@ target 'Elib' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   pod 'Firebase/Storage' 
+  pod 'FirebaseUI' 
 
 end

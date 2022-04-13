@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        NavigationView {
-            ScrollView{
-                Text("ProfileView")
+        ScrollView {
+            NavigationView {
+                VStack {
+                    Text("MyLibrary")
+                }
+                .navigationTitle("MyLibrary")
             }
-            .background(Color(.systemGray6))
         }
+        .background(Color(.systemGray6))
     }
 }
 

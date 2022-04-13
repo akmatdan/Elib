@@ -60,8 +60,9 @@ class BooksViewModel: ObservableObject {
         let db = Firestore.firestore()
 
         db.collection("books").getDocuments { snapshot, error in
+            
             if error == nil {
-
+                
                 if let snapshot = snapshot {
 
                     DispatchQueue.main.async {

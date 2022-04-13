@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import FirebaseStorage
+import FirebaseFirestore
 
 struct AddBookView: View {
     
@@ -24,13 +25,14 @@ struct AddBookView: View {
     
     @State private var isEditing = false
     
-    @State var retrivedImage = UIImage()
+    @State var retrivedImages = [UIImage]()
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 
-               VStack {
+                // Select and Change Button
+                VStack {
                    
                    if selectedImage != nil {
                        Image(uiImage: selectedImage!)
@@ -52,6 +54,7 @@ struct AddBookView: View {
                                     .font(.system(size: 32, weight: .bold))
                                     .foregroundColor(Color(.gray))
                                     .padding(.top, 10)
+                                
                                 Text("Select a photo")
                                     .font(.system(size: 22, weight: .bold))
                                     .foregroundColor(Color.gray)
@@ -61,6 +64,7 @@ struct AddBookView: View {
                     }
                 }
                     
+                // TextFields
                 VStack(spacing: 15) {
                     TextField("ISBN", text: $isbn)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -90,11 +94,21 @@ struct AddBookView: View {
                                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
                         }
                     }
+                    
+//                    HStack {
+//                        ForEach(retrivedImages, id: \.self) { image in
+//                            Image(uiImage: image)
+//                                .resizable()
+//                                .frame(width: 200, height: 200)
+//                        }
+//                    }
                 }.sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                    
                     // Image picker
                     ImagePicker(selectedImage: $selectedImage, isPickerShowign: $isPickerShowing )
                 }
-                    // Cancel button
+                
+                // Cancel button
                 Button(action: {
                     self.isEditing = false
                     selectedImage = nil
@@ -135,13 +149,13 @@ struct AddBookView: View {
         let storageRef = Storage.storage().reference()
          
         // Turn our image into data
-        let imageData = selectedImage!.jpegData(compressionQuality: 0.8)
+        let imageData = selectedImage!.jpegData(compressionQuality: 1)
         
         // Check that we were able to convert it to data
         guard imageData != nil else { return }
         
         // Specify the file path and name
-        let path = "booksImages/\(UUID().uuidString).jpg"
+        let path = "\(UUID().uuidString).jpeg"
         let fileRef = storageRef.child(path)
         
         // Upload that data
@@ -150,18 +164,65 @@ struct AddBookView: View {
             // Check for error
             if error == nil && metadata != nil {
                 
-                // TODO: Save a reference to the file in Firestore DB with other data
+                // Save a reference to the file in Firestore DB with other data
                 let db = Firestore.firestore()
-                db.collection("books").document().setData(["url": path, "isbn": isbn, "title": title, "author": author, "year": year, "description": description])
+                db.collection("books").document().setData(["url": "https://firebasestorage.googleapis.com/v0/b/elib-658e7.appspot.com/o/\(path)?alt=media", "isbn": isbn, "title": title, "author": author, "year": year, "description": description]) { error in
+                    
+                    // if there were no erro, display the new image
+                    if error == nil {
+                        DispatchQueue.main.async {
+                            self.retrivedImages.append(self.selectedImage!)
+                        }
+                    }
+                }
             }
         }
     }
     
+    // Fetch Photo
     func retriveData() {
         
         // Get the data from the DB
+        let db = Firestore.firestore()
         
-        // Get the image data in storage for each image reference
+        db.collection("books").getDocuments { snapshot, error in
+            
+            if error == nil && snapshot != nil {
+                
+                var paths = [String]()
+                
+                // Loop through all the returned docs
+                for doc in snapshot!.documents {
+                    
+                    // Extract the file path
+                    paths.append(doc["url"] as! String)
+                }
+                
+                // Loop through each file path and fetch data from storage
+                for path in paths {
+                    
+                    // Get a reference to a storage
+                    let storageRef = Storage.storage().reference()
+                    
+                    // Specify the path
+                    let fileRef = storageRef.child(path)
+                    
+                    // Retrieve the path
+                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                        
+                        if error == nil  && data != nil {
+                            
+                            // Create a UIImage and put it into our array for display
+                            if let image = UIImage(data: data!) {
+                                DispatchQueue.main.async {
+                                    retrivedImages.append(image)
+                                }
+                            }
+                        }
+                    }
+                } // End of loop through path
+            }
+        }
         
         // Display the images
     }

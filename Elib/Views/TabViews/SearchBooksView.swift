@@ -21,9 +21,9 @@ struct SearchBooksView: View {
                     if let filteredBooks = filteredBooks {
                         List(filteredBooks, id: \.self) { books in
                             
-                            NavigationLink(destination: BookSearchDetailView(book: books)) {
+                            NavigationLink(destination: BookDetailView(book: books)) {
                                 HStack() {
-                                    ImageLoader(url: books.imageName)
+                                    SearchLoadImage(url: "\(books.url)")
 
                                     VStack(alignment: .leading, spacing: 5) {
 
