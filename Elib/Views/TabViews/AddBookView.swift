@@ -27,8 +27,10 @@ struct AddBookView: View {
     
     @State var retrivedImages = [UIImage]()
     
+    @State var customAlert = false
+    
     var body: some View {
-        NavigationView {
+        ZStack {
             ScrollView(showsIndicators: false) {
                 
                 // Select and Change Button
@@ -37,7 +39,7 @@ struct AddBookView: View {
                    if selectedImage != nil {
                        Image(uiImage: selectedImage!)
                            .resizable()
-                           .frame(width: 200, height: 200)
+                           .frame(maxWidth: 240, maxHeight: 320)
                    }
                    
                     Button {
@@ -78,10 +80,24 @@ struct AddBookView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         
                     // Add Book button
-                    if selectedImage != nil {
+                    if selectedImage != nil  {
+                        
                         Button {
+                            withAnimation {
+                                customAlert.toggle()
+                            }
                             
                             uploadPhoto()
+                            
+                            self.isEditing = false
+                            selectedImage = nil
+                            isbn = ""
+                            title = ""
+                            author = ""
+                            year = ""
+                            description = ""
+                            UIApplication.shared.dismissKeyboard()
+                            
                         } label: {
                             Text("Add Book")
                                 .font(.custom(customFont, size: 17).bold())
@@ -94,14 +110,6 @@ struct AddBookView: View {
                                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
                         }
                     }
-                    
-//                    HStack {
-//                        ForEach(retrivedImages, id: \.self) { image in
-//                            Image(uiImage: image)
-//                                .resizable()
-//                                .frame(width: 200, height: 200)
-//                        }
-//                    }
                 }.sheet(isPresented: $isPickerShowing, onDismiss: nil) {
                     
                     // Image picker
@@ -133,9 +141,15 @@ struct AddBookView: View {
                 })
             }
             .background(Color(.systemGray6))
+            .padding(.horizontal, 30)
+            
+            if customAlert {
+                CustomAlertView(show: $customAlert)
+            }
+                
         }
         .navigationBarHidden(true)
-        .padding(.horizontal, 25)
+        
         .background(Color(.systemGray6))
     }
     
@@ -226,10 +240,66 @@ struct AddBookView: View {
         
         // Display the images
     }
+    
 }
 
 struct AddBookView_Previews: PreviewProvider {
     static var previews: some View {
         AddBookView()
+    }
+}
+
+struct CustomAlertView: View {
+    
+    @Binding var show : Bool
+    
+    var body: some View {
+        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
+            VStack(spacing: 25) {
+                Image(systemName: "checkmark.circle.fill")
+                Text("Congratulations!")
+                    .font(.custom(customFont, size: 20))
+                    .fontWeight(.bold)
+                Text("You've successfully published your book.")
+                Button {
+                    withAnimation {
+                        show.toggle()
+                    }
+                } label: {
+                    Text("Back")
+                        .font(.custom(customFont, size: 20))
+                        .foregroundColor(Color.white)
+                        .padding(.vertical, 15)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            Color(red: 0.2, green: 0.0, blue: 0.7)
+                                .cornerRadius(15)
+                                .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
+                        )
+                }
+            }
+            .padding(.vertical, 25)
+            .padding(.horizontal, 30)
+            .background(BlureView())
+            .cornerRadius(25)
+            .padding(.horizontal, 30)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+            Color.primary.opacity(0.35)
+        )
+    }
+}
+
+struct BlureView: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+        
+        return view
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        
     }
 }
