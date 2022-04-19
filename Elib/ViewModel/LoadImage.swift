@@ -12,6 +12,7 @@ import SDWebImageSwiftUI
 struct LoadImage: View {
 
     @State var url = ""
+    @State var animate = false
 
     var body: some View {
 
@@ -21,7 +22,12 @@ struct LoadImage: View {
                     .resizable()
                     .frame(maxWidth: 130, maxHeight: 170)
             } else {
-                Loader()
+                Circle()
+                // for dark mode
+                    .stroke(AngularGradient(gradient: .init(colors: [Color.primary, Color.primary.opacity(0)]), center: .center))
+                    .frame(width: 80, height: 80)
+                // animating
+                    .rotationEffect(.init(degrees: animate ? 360 : 0))
             }
         }
         .onAppear() {

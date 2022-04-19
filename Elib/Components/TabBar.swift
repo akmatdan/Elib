@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBar: View {
     
     @State var currentTab: Tab = .Home
+    @StateObject var data: BooksViewModel = BooksViewModel()
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -30,6 +31,7 @@ struct TabBar: View {
                     .tag(Tab.AddBook)
                 
                 MyLibraryView()
+                    .environmentObject(data)
                     .tag(Tab.MyLibrary)
                 
                 ProfileView()

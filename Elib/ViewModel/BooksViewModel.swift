@@ -77,7 +77,8 @@ class BooksViewModel: ObservableObject {
                                          author: d["author"] as? String ?? "",
                                          year: d["year"] as? String ?? "",
                                          description: d["description"] as? String ?? "",
-                                         url: d["url"] as? String ?? ""
+                                         url: d["url"] as? String ?? "",
+                                         likedBooks: d["liked"] as? Int ?? 0
                             )
                         }
                     }

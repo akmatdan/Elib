@@ -11,7 +11,7 @@ struct HomeTabBar: View {
 
     @State var selectedIndex = 1
     
-    let tabBarImageNames = ["Ganre", "Books to read", "Libraries"]
+    let tabBarImageNames = ["Ganre", "Books", "Libraries"]
     
     var body: some View {
         ScrollView {

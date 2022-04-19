@@ -16,5 +16,6 @@ struct Book: Identifiable, Hashable {
     var year: String
     let description: String
     var url: String
+    var likedBooks: Int
 }
 

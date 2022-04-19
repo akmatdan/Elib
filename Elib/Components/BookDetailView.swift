@@ -14,6 +14,7 @@ struct BookDetailView: View {
     var book: Book
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    
     var body: some View {
         
         VStack {
@@ -126,4 +127,6 @@ struct BookDetailView: View {
                 }
             }
         }
+
 }
+

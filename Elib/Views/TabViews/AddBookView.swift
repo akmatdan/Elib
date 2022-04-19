@@ -28,6 +28,8 @@ struct AddBookView: View {
     @State var retrivedImages = [UIImage]()
     
     @State var customAlert = false
+    @State var HUD = false
+    @State var count: Int = 3
     
     var body: some View {
         ZStack {
@@ -80,24 +82,20 @@ struct AddBookView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         
                     // Add Book button
-                    if selectedImage != nil  {
-                        
+                    
+                    if selectedImage != nil {
                         Button {
-                            withAnimation {
-                                customAlert.toggle()
-                            }
-                            
                             uploadPhoto()
                             
-                            self.isEditing = false
-                            selectedImage = nil
-                            isbn = ""
-                            title = ""
-                            author = ""
-                            year = ""
-                            description = ""
-                            UIApplication.shared.dismissKeyboard()
-                            
+                            withAnimation() {
+                                
+                                customAlert.toggle()
+                            }
+                        
+                            withAnimation() {
+                                HUD.toggle()
+                            }
+                        
                         } label: {
                             Text("Add Book")
                                 .font(.custom(customFont, size: 17).bold())
@@ -110,46 +108,49 @@ struct AddBookView: View {
                                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
                         }
                     }
-                }.sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                    
+                    // Cancel button
+                    Button(action: {
+                        self.isEditing = false
+                        selectedImage = nil
+                        isbn = ""
+                        title = ""
+                        author = ""
+                        year = ""
+                        description = ""
+                        UIApplication.shared.dismissKeyboard()
+                    },
+                           label: {
+                        Text("Clear")
+                            .font(.custom(customFont, size: 17).bold())
+                            .fontWeight(.semibold)
+                            .padding(.vertical, 20)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(Color.white)
+                            .background(Color(red: 0.2, green: 0.0, blue: 0.7))
+                            .cornerRadius(15)
+                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+                            .padding(.vertical, 10)
+                    })
+                }
+                .padding(.horizontal, 30)
+                    .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
                     
                     // Image picker
                     ImagePicker(selectedImage: $selectedImage, isPickerShowign: $isPickerShowing )
                 }
-                
-                // Cancel button
-                Button(action: {
-                    self.isEditing = false
-                    selectedImage = nil
-                    isbn = ""
-                    title = ""
-                    author = ""
-                    year = ""
-                    description = ""
-                    UIApplication.shared.dismissKeyboard()
-                },
-                       label: {
-                    Text("Cancel")
-                        .font(.custom(customFont, size: 17).bold())
-                        .fontWeight(.semibold)
-                        .padding(.vertical, 20)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(Color.white)
-                        .background(Color(red: 0.2, green: 0.0, blue: 0.7))
-                        .cornerRadius(15)
-                        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
-                        .padding(.vertical, 10)
-                })
             }
             .background(Color(.systemGray6))
-            .padding(.horizontal, 30)
             
             if customAlert {
                 CustomAlertView(show: $customAlert)
             }
-                
+            
+            if HUD {
+                HUDProgressView(placeHolder: "Please wait", show: $HUD)
+            }
         }
         .navigationBarHidden(true)
-        
         .background(Color(.systemGray6))
     }
     
@@ -163,7 +164,7 @@ struct AddBookView: View {
         let storageRef = Storage.storage().reference()
          
         // Turn our image into data
-        let imageData = selectedImage!.jpegData(compressionQuality: 1)
+        let imageData = selectedImage!.jpegData(compressionQuality: 0.8)
         
         // Check that we were able to convert it to data
         guard imageData != nil else { return }
@@ -172,74 +173,68 @@ struct AddBookView: View {
         let path = "\(UUID().uuidString).jpeg"
         let fileRef = storageRef.child(path)
         
-        // Upload that data
-        let uploadImage = fileRef.putData(imageData!, metadata: nil) { metadata, error in
-            
-            // Check for error
-            if error == nil && metadata != nil {
+        DispatchQueue.main.async {
+            // Upload that data
+            _ = fileRef.putData(imageData!, metadata: nil) { metadata, error in
                 
-                // Save a reference to the file in Firestore DB with other data
-                let db = Firestore.firestore()
-                db.collection("books").document().setData(["url": "https://firebasestorage.googleapis.com/v0/b/elib-658e7.appspot.com/o/\(path)?alt=media", "isbn": isbn, "title": title, "author": author, "year": year, "description": description]) { error in
+                // Check for error
+                if error == nil && metadata != nil {
                     
-                    // if there were no erro, display the new image
-                    if error == nil {
-                        DispatchQueue.main.async {
-                            self.retrivedImages.append(self.selectedImage!)
-                        }
-                    }
+                    // Save a reference to the file in Firestore DB with other data
+                    let db = Firestore.firestore()
+                    db.collection("books").document().setData(["url": "https://firebasestorage.googleapis.com/v0/b/elib-658e7.appspot.com/o/\(path)?alt=media", "isbn": isbn, "title": title, "author": author, "year": year, "description": description])
                 }
             }
         }
     }
     
     // Fetch Photo
-    func retriveData() {
-        
-        // Get the data from the DB
-        let db = Firestore.firestore()
-        
-        db.collection("books").getDocuments { snapshot, error in
-            
-            if error == nil && snapshot != nil {
-                
-                var paths = [String]()
-                
-                // Loop through all the returned docs
-                for doc in snapshot!.documents {
-                    
-                    // Extract the file path
-                    paths.append(doc["url"] as! String)
-                }
-                
-                // Loop through each file path and fetch data from storage
-                for path in paths {
-                    
-                    // Get a reference to a storage
-                    let storageRef = Storage.storage().reference()
-                    
-                    // Specify the path
-                    let fileRef = storageRef.child(path)
-                    
-                    // Retrieve the path
-                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
-                        
-                        if error == nil  && data != nil {
-                            
-                            // Create a UIImage and put it into our array for display
-                            if let image = UIImage(data: data!) {
-                                DispatchQueue.main.async {
-                                    retrivedImages.append(image)
-                                }
-                            }
-                        }
-                    }
-                } // End of loop through path
-            }
-        }
-        
-        // Display the images
-    }
+//    func retriveData() {
+//
+//        // Get the data from the DB
+//        let db = Firestore.firestore()
+//
+//        db.collection("books").getDocuments { snapshot, error in
+//
+//            if error == nil && snapshot != nil {
+//
+//                var paths = [String]()
+//
+//                // Loop through all the returned docs
+//                for doc in snapshot!.documents {
+//
+//                    // Extract the file path
+//                    paths.append(doc["url"] as! String)
+//                }
+//
+//                // Loop through each file path and fetch data from storage
+//                for path in paths {
+//
+//                    // Get a reference to a storage
+//                    let storageRef = Storage.storage().reference()
+//
+//                    // Specify the path
+//                    let fileRef = storageRef.child(path)
+//
+//                    // Retrieve the path
+//                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+//
+//                        if error == nil  && data != nil {
+//
+//                            // Create a UIImage and put it into our array for display
+//                            if let image = UIImage(data: data!) {
+//                                DispatchQueue.main.async {
+//                                    retrivedImages.append(image)
+//                                }
+//                            }
+//                        }
+//                    }
+//                } // End of loop through path
+//            }
+//        }
+//
+//        // Display the images
+//    }
     
 }
 
@@ -249,7 +244,58 @@ struct AddBookView_Previews: PreviewProvider {
     }
 }
 
-struct CustomAlertView: View {
+struct HUDProgressView : View {
+    
+    var placeHolder : String
+    @Binding var show : Bool
+    @State var animate = false
+    
+    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @State var count: Int = 10
+    
+    var body: some View {
+        VStack(spacing: 28) {
+            Text("\(count)")
+                .fontWeight(.bold)
+            
+            Circle()
+            // for dark mode
+                .stroke(AngularGradient(gradient: .init(colors: [Color.primary, Color.primary.opacity(0)]), center: .center))
+                .frame(width: 80, height: 80)
+            // animating
+                .rotationEffect(.init(degrees: animate ? 360 : 0))
+            
+            Text(placeHolder)
+                .fontWeight(.bold)
+        }
+        .padding(.vertical, 25)
+        .padding(.horizontal, 35)
+        .background(BlureView())
+        .cornerRadius(20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+            Color.primary.opacity(0.35)
+                .onReceive(timer) { time in
+                    // Closing view
+                    if count <= 1 {
+                        withAnimation {
+                            show.toggle()
+                        }
+                    } else {
+                        count -= 1
+                    }
+                }
+        )
+        .onAppear{
+            // Starting Animation
+            withAnimation( Animation.linear(duration: 1.5).repeatForever(autoreverses: false)) {
+                animate.toggle()
+            }
+        }
+    }
+}
+
+struct CustomAlertView : View {
     
     @Binding var show : Bool
     
