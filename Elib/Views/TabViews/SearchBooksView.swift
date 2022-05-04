@@ -15,6 +15,7 @@ struct SearchBooksView: View {
     var body: some View {
         NavigationView {
             VStack() {
+                
                 SearchBar(searchText: $searchText)
                 
                 if searchText != "" {
@@ -52,7 +53,7 @@ struct SearchBooksView: View {
                     }
                     
                 } else {
-                    Text("Try to search!")
+                    Text("Try to search books of other libraries!")
                     Spacer()
                 }
                 

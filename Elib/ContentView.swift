@@ -11,15 +11,15 @@ import SwiftUI
 struct ContentView: View {
     
     // Log status
-    @AppStorage("Log_Status") var log_Status: Bool = false
+    @StateObject var loginData: LoginViewModel = LoginViewModel()
     
     var body: some View {
         
         Group {
-            if log_Status{
+            if loginData.signedIn {
                 TabBar()
             } else {
-                OnBoardingView()
+                LoginView()
             }
         }
     }

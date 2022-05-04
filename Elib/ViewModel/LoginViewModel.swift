@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
 
 class LoginViewModel: ObservableObject {
     
@@ -20,6 +21,9 @@ class LoginViewModel: ObservableObject {
     @Published var reEnterPassword: String = ""
     @Published var showReEnterPassword: Bool = false
     
+    @Published var signedIn = false
+    
+    let auth = Auth.auth()
     
     // Log Status
     @AppStorage("Log_Status") var log_Status: Bool = false
@@ -27,17 +31,42 @@ class LoginViewModel: ObservableObject {
     //Login Call
     func Login() {
         withAnimation {
-            log_Status = true
+            auth.signIn(withEmail: email,
+                        password: password) { [weak self] result, error in
+               guard result != nil, error == nil else  {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self?.signedIn = true
+                }
+            }
         }
     }
     
     func Register() {
         withAnimation {
-            log_Status = true
+            auth.createUser(withEmail: email, password: password) { [weak self] result, error in
+                guard result != nil, error == nil else  {
+                     return
+                 }
+                DispatchQueue.main.async {
+                    self?.signedIn = true
+                }
+            }
         }
     }
     
     func ForgotPassword() {
+        
+    }
+    
+    func isSignedIn() -> Bool? {
+        return auth.currentUser != nil
+    }
+    
+    func signOut() {
+        try? auth.signOut()
+        self.signedIn = false
         
     }
 }

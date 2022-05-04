@@ -63,15 +63,21 @@ struct LoginView: View {
                     // Email Field
                     CustomTextField(icon: "envelope", title: "Email", hint: "abcde@gmail.com", value: $loginData.email, showPassword: .constant(false))
                         .padding(.top, 30)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     
                     // Password Field
                     CustomTextField(icon: "lock", title: "Password", hint: "12345", value: $loginData.password, showPassword: $loginData.showPassword)
                         .padding(.top, 10)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     
                     // Register reenter password
                     if loginData.registerUser{
                         CustomTextField(icon: "envelope", title: "Re-Enter Password", hint: "123456", value: $loginData.reEnterPassword, showPassword: $loginData.showReEnterPassword)
                             .padding(.top, 10)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
                     }
                     
                     // Forgot Password Button
@@ -88,13 +94,14 @@ struct LoginView: View {
                     
                     // Login Button
                     Button {
+                        guard !loginData.email.isEmpty, !loginData.password.isEmpty else { return }
                         if loginData.registerUser {
                             loginData.Register()
                         } else {
                             loginData.Login()
                         }
                     } label: {
-                        Text("Login")
+                        Text(loginData.registerUser ? "Register" : "Login")
                             .font(.custom(customFont, size: 17).bold())
                             .fontWeight(.semibold)
                             .padding(.vertical, 20)

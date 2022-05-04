@@ -37,24 +37,24 @@ class BooksViewModel: ObservableObject {
         }
     }
     
-    func addData(isbn: String, title: String, author: String, year: String, description: String, url: String) {
-        
-        // Get ref to the db
-        let db = Firestore.firestore()
-        db.collection("books").addDocument(data: ["isbn": isbn, "title": title, "author": author, "year": year, "description": description, url: "url"]) { error in
-            
-            if error == nil {
-                
-                // Call data to retrive latest data
-                self.fetchData()
-            } else {
-                print((error?.localizedDescription)!)
-                return
-            }
-        }
-        
-        // Add data to collection
-    }
+//    func addData(isbn: String, title: String, author: String, year: String, description: String, url: String) {
+//        
+//        // Get ref to the db
+//        let db = Firestore.firestore()
+//        db.collection("books").addDocument(data: ["isbn": isbn, "title": title, "author": author, "year": year, "description": description, url: "url"]) { error in
+//            
+//            if error == nil {
+//                
+//                // Call data to retrive latest data
+//                self.fetchData()
+//            } else {
+//                print((error?.localizedDescription)!)
+//                return
+//            }
+//        }
+//        
+//        // Add data to collection
+//    }
 
     func fetchData() {
         let db = Firestore.firestore()

@@ -29,7 +29,9 @@ struct AddBookView: View {
     
     @State var customAlert = false
     @State var HUD = false
-    @State var count: Int = 3
+    
+    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @State var count: Int = 0
     
     var body: some View {
         ZStack {
@@ -85,16 +87,16 @@ struct AddBookView: View {
                     
                     if selectedImage != nil {
                         Button {
-                            uploadPhoto()
+//                            uploadPhoto()
                             
                             withAnimation() {
-                                
                                 customAlert.toggle()
                             }
                         
                             withAnimation() {
                                 HUD.toggle()
                             }
+                            
                         
                         } label: {
                             Text("Add Book")
@@ -299,6 +301,9 @@ struct CustomAlertView : View {
     
     @Binding var show : Bool
     
+    let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @State var count: Int = 0
+    
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
             VStack(spacing: 25) {
@@ -333,6 +338,16 @@ struct CustomAlertView : View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             Color.primary.opacity(0.35)
+                .onReceive(timer) { time in
+                    // Closing view
+                    if count >= 10 {
+                        withAnimation {
+                            show.toggle()
+                        }
+                    } else {
+                        count += 1
+                    }
+                }
         )
     }
 }

@@ -16,67 +16,13 @@ struct MyLibraryView: View {
     
     var body: some View {
         NavigationView {
-//            ScrollView(.vertical, showsIndicators: false) {
-//                VStack {
-//                    HStack {
-//                        Text("Favourites")
-//                            .font(.custom(customFont, size: 28).bold())
-//
-//                        Spacer()
-//
-//                        Button {
-//                            withAnimation {
-//                                showDeleteOption.toggle()
-//                            }
-//                        } label: {
-//                            Image(systemName: "trash")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                                .frame(width:25, height: 25)
-//                        }
-//
-//                    }
-//                    .padding()
-//
-//                    if model.books.likedBooks.isEmpty {
-//                        Group {
-//                            Image("onBoardImage1")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                                .padding()
-//                                .padding(.top, 35)
-//                            Text("No favorites yet")
-//                                .font(.custom(customFont, size: 25))
-//                                .fontWeight(.semibold)
-//                        }
-//                    } else {
-//                        VStack(spacing: 25) {
-//                            ForEach(model.books){ product in
-//                                HStack(spacing: 0) {
-//
-//                                    if showDeleteOption{
-//                                        Button {
-//                                            deleteBook(product: product)
-//                                        } label: {
-//                                            Image(systemName: "minus.circle.fill")
-//                                                .font(.title2)
-//                                                .foregroundColor(.red)
-//                                        }
-//                                        .padding(.trailing)
-//                                    }
-//                                    CardView(product: product)
-//                                }
-//                            }
-//                        }
-//                        .padding(.top, 25)
-//                        .padding(.horizontal)
-//                    }
-//                }
-//
-//            }
-//            .background(Color(.systemGray6))
-            
             VStack() {
+                Text("My Library")
+                    .font(.custom(customFont, size: 28).bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 22)
+                    
                 SearchBar(searchText: $searchText)
                     if let filteredBooks = filteredBooks {
                         List{
@@ -107,7 +53,8 @@ struct MyLibraryView: View {
                                 }
                                 .swipeActions {
                                     Button(role: .destructive) {
-                                        print("Delete")
+                                        print("Deleted")
+                                        model.deleteData(bookToDelete: books)
                                     } label: {
                                         Label("Delete", systemImage: "trash.circle.fill")
                                     }
@@ -122,7 +69,7 @@ struct MyLibraryView: View {
             .onAppear() {
                 model.fetchData()
             }
-        }.navigationBarHidden(true)
+        }
     }
     
     var filteredBooks: [Book] {
