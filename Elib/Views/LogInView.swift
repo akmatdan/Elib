@@ -286,7 +286,7 @@ struct SignUpView: View {
                 } label: {
                     Image(systemName: "chevron.left")
                         .font(.title)
-                        .foregroundColor(color)
+                        .foregroundColor(Color("Purple"))
                 }
                 .padding()
             }
