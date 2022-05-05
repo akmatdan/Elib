@@ -19,6 +19,7 @@ struct HomeView: View {
                 
             }
             .background(Color(.systemGray6))
+            .navigationBarTitle("")
             .navigationBarHidden(true)
         }
     }

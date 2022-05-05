@@ -152,6 +152,7 @@ struct AddBookView: View {
                 HUDProgressView(placeHolder: "Please wait", show: $HUD)
             }
         }
+        .navigationBarTitle("")
         .navigationBarHidden(true)
         .background(Color(.systemGray6))
     }

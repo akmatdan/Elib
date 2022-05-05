@@ -70,6 +70,8 @@ struct MyLibraryView: View {
                 model.fetchData()
             }
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     var filteredBooks: [Book] {

@@ -11,7 +11,9 @@ import SwiftUI
 let customFont = "Raleway-Regular"
 
 struct OnBoardingView: View {
+    
     @State var showLoginView: Bool = false
+    @State var show = false
     
     var body: some View {
         
@@ -56,7 +58,7 @@ struct OnBoardingView: View {
         .overlay(
             Group{
                 if showLoginView{
-                    LoginView()
+                    LogInView(show: self.$show)
                         .transition(.move(edge: .bottom))
                 }
             }

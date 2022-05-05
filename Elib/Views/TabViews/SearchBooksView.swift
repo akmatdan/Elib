@@ -62,7 +62,9 @@ struct SearchBooksView: View {
             .onAppear() {
                 model.fetchData()
             }
-        }.navigationBarHidden(true)
+        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     var filteredBooks: [Book] {

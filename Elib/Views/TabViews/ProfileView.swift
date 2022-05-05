@@ -115,11 +115,16 @@ struct ProfileView: View {
                 }
                 .padding(.vertical, 20)
                 .padding(.horizontal, 22)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
             }
-            .background(Color(.systemGray6))
+            .navigationBarTitle("")
             .navigationBarHidden(true)
+            .background(Color(.systemGray6))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     // Avoiding new structs
