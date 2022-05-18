@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct MyLibraryView: View {
     
@@ -13,6 +14,9 @@ struct MyLibraryView: View {
     @ObservedObject var model = BooksViewModel()
     
     @State var showDeleteOption: Bool = false
+    
+    // Geting userID for adding data to myLibrary page
+    let userID = Auth.auth().currentUser?.uid
     
     var body: some View {
         NavigationView {
@@ -24,43 +28,45 @@ struct MyLibraryView: View {
                     .padding(.horizontal, 22)
                     
                 SearchBar(searchText: $searchText)
+                
                     if let filteredBooks = filteredBooks {
                         List{
                             ForEach(filteredBooks, id: \.self) { books in
-                                
-                                NavigationLink(destination: BookDetailView(book: books)) {
-                                    HStack() {
-                                        SearchLoadImage(url: "\(books.url)")
+                                if userID == books.uid {
+                                    NavigationLink(destination: BookDetailView(book: books)) {
+                                        
+                                        HStack() {
+                                            SearchLoadImage(url: "\(books.url)")
 
-                                        VStack(alignment: .leading, spacing: 5) {
+                                            VStack(alignment: .leading, spacing: 5) {
 
-                                            Text(books.title)
-                                                .fontWeight(.semibold)
-                                                .lineLimit(2)
-                                                .minimumScaleFactor(0.5)
-                                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                                Text(books.title)
+                                                    .fontWeight(.semibold)
+                                                    .lineLimit(2)
+                                                    .minimumScaleFactor(0.5)
+                                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
 
-                                            Text(books.author)
-                                                .font(.subheadline)
-                                                .foregroundColor(.secondary)
+                                                Text(books.author)
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.secondary)
 
-                                            Text(books.isbn)
-                                                .font(.subheadline)
-                                                .foregroundColor(.secondary)
+                                                Text(books.isbn)
+                                                    .font(.subheadline)
+                                                    .foregroundColor(.secondary)
+                                            }
                                         }
+                                        
                                     }
-                                    
-                                }
-                                .swipeActions {
-                                    Button(role: .destructive) {
-                                        print("Deleted")
-                                        model.deleteData(bookToDelete: books)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash.circle.fill")
+                                    .swipeActions {
+                                        Button(role: .destructive) {
+                                            print("Deleted")
+                                            model.deleteData(bookToDelete: filteredBooks[0])
+                                        } label: {
+                                            Label("Delete", systemImage: "trash.circle.fill")
+                                        }
+                                        
                                     }
-
                                 }
-                                
                             }
                         }
                     }
@@ -75,6 +81,7 @@ struct MyLibraryView: View {
     }
     
     var filteredBooks: [Book] {
+        
         if searchText.isEmpty {
             return model.books
         } else {

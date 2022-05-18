@@ -14,7 +14,7 @@ struct ProfileView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    Text("My Profile")
+                    Text("Settings")
                         .font(.custom(customFont, size: 28).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -27,7 +27,7 @@ struct ProfileView: View {
                             .offset(y: -30)
                             .padding(.bottom, -30)
                         
-                        Text("Dan Akmat")
+                        Text("...")
                             .font(.custom(customFont, size: 18))
                             .fontWeight(.semibold)
                         
@@ -36,7 +36,7 @@ struct ProfileView: View {
                                 .foregroundColor(.gray)
                                 .rotationEffect(.init(degrees: 180))
                             
-                            Text("Address: Tynalieva 1000/3 Bishkek, Kyegyzstan")
+                            Text("...")
                                 .font(.custom(customFont, size: 15))
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -51,6 +51,8 @@ struct ProfileView: View {
                     
                     // Custom Navigation Links
                     CustomNavigationLink(title: "Account settings") {
+                        
+                        
                         Text("")
                             .navigationTitle("Account settings")
                             .background(Color(.systemGray6))
@@ -111,6 +113,7 @@ struct ProfileView: View {
                             .background(Color(red: 0.2, green: 0.0, blue: 0.7))
                             .cornerRadius(15)
                             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
+                            .padding(.top, 10)
                     }
                 }
                 .padding(.vertical, 20)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 // Custom font
-let customFont = "Raleway-Regular"
+let customFont = "Archivo-Regular"
 
 struct OnBoardingView: View {
     

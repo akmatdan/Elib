@@ -10,12 +10,12 @@ import Foundation
 struct Book: Identifiable, Hashable {
     var id = UUID().uuidString
     var isbn: String
-    var imageName: String
     var title: String
     var author: String
     var year: String
     let description: String
     var url: String
-    var likedBooks: Int
+    var likedBooks: Bool
+    var uid: String
 }
 

@@ -15,6 +15,11 @@ struct SearchBooksView: View {
     var body: some View {
         NavigationView {
             VStack() {
+                Text("Search book")
+                    .font(.custom(customFont, size: 28).bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 22)
                 
                 SearchBar(searchText: $searchText)
                 
@@ -45,17 +50,16 @@ struct SearchBooksView: View {
                                 }
                             }
                         }
-                    } else {
-                        VStack {
-                            Text("Not found!")
-                            Spacer()
-                        }
                     }
-                    
                 } else {
-                    Text("Try to search books of other libraries!")
+                    Text("Try to search books by title, author, ISBN or even name of libraries!")
+                        .font(.custom(customFont, size: 14))
+                        .fontWeight(.semibold)
+                        .padding(.horizontal, 10)
+                        
+                        .foregroundColor(Color.black)
                     Spacer()
-                }
+                } 
                 
             }
             .background(Color(.systemGray6))

@@ -15,7 +15,8 @@ struct HomeView: View {
         NavigationView{
             VStack {
 
-                HomeTabBar()
+                MainList()
+//                HomeTabBar()
                 
             }
             .background(Color(.systemGray6))

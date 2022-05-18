@@ -18,6 +18,7 @@
 		E31DFF4C27B2E75300508E96 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF4B27B2E75300508E96 /* BookDetailView.swift */; };
 		E31DFF4E27B3A0F000508E96 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E31DFF4D27B3A0F000508E96 /* GoogleService-Info.plist */; };
 		E31DFF6027B4BF9500508E96 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */; };
+		E32CBD2B282513B800A9407E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32CBD2A282513B800A9407E /* LaunchScreen.storyboard */; };
 		E34058D527E4B5A0005504ED /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058D427E4B5A0005504ED /* HomeTabBar.swift */; };
 		E34058D927E4BC55005504ED /* GanreList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058D827E4BC55005504ED /* GanreList.swift */; };
 		E34058DB27E4BC84005504ED /* LibrariesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34058DA27E4BC84005504ED /* LibrariesList.swift */; };
@@ -58,11 +59,18 @@
 		E31DFF4B27B2E75300508E96 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		E31DFF4D27B3A0F000508E96 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E31DFF5F27B4BF9500508E96 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		E32CBD2A282513B800A9407E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E34058D427E4B5A0005504ED /* HomeTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		E34058D827E4BC55005504ED /* GanreList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GanreList.swift; sourceTree = "<group>"; };
 		E34058DA27E4BC84005504ED /* LibrariesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesList.swift; sourceTree = "<group>"; };
 		E34058DC27E4BF24005504ED /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
 		E34058DE27E4D614005504ED /* BookCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCardView.swift; sourceTree = "<group>"; };
+		E3425394283240740092BF6C /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		E3425395283240740092BF6C /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		E3425396283240740092BF6C /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		E3425397283241600092BF6C /* Archivo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Archivo-Bold.ttf"; sourceTree = "<group>"; };
+		E3425398283241600092BF6C /* Archivo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Archivo-Regular.ttf"; sourceTree = "<group>"; };
+		E3425399283241610092BF6C /* Archivo-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Archivo-SemiBold.ttf"; sourceTree = "<group>"; };
 		E3508FFE27CCAAC50049E637 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		E350900327CE8CE30049E637 /* HiddenNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationBar.swift; sourceTree = "<group>"; };
 		E366D3B227F233EA0008E607 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -185,6 +193,7 @@
 				E39D2F0927DA7A7000EE4A00 /* LogInView.swift */,
 				E366D3B027F1BF140008E607 /* TabViews */,
 				E370E9B627D8898100218B86 /* Fonts */,
+				E32CBD2A282513B800A9407E /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +245,12 @@
 		E370E9B627D8898100218B86 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E3425397283241600092BF6C /* Archivo-Bold.ttf */,
+				E3425398283241600092BF6C /* Archivo-Regular.ttf */,
+				E3425399283241610092BF6C /* Archivo-SemiBold.ttf */,
+				E3425394283240740092BF6C /* Nunito-Bold.ttf */,
+				E3425396283240740092BF6C /* Nunito-Regular.ttf */,
+				E3425395283240740092BF6C /* Nunito-SemiBold.ttf */,
 				E370E9B727D889AA00218B86 /* Raleway-Bold.ttf */,
 				E370E9B827D889AA00218B86 /* Raleway-Regular.ttf */,
 				E370E9B927D889AB00218B86 /* Raleway-SemiBold.ttf */,
@@ -314,6 +329,7 @@
 				E370E9BB27D889AB00218B86 /* Raleway-Regular.ttf in Resources */,
 				E31DFF3927B1240000508E96 /* Assets.xcassets in Resources */,
 				E370E9BC27D889AB00218B86 /* Raleway-SemiBold.ttf in Resources */,
+				E32CBD2B282513B800A9407E /* LaunchScreen.storyboard in Resources */,
 				E31DFF4E27B3A0F000508E96 /* GoogleService-Info.plist in Resources */,
 				E370E9BA27D889AB00218B86 /* Raleway-Bold.ttf in Resources */,
 			);
@@ -548,7 +564,7 @@
 				INFOPLIST_FILE = Elib/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -581,7 +597,7 @@
 				INFOPLIST_FILE = Elib/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

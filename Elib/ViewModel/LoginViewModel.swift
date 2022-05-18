@@ -30,41 +30,6 @@ class LoginViewModel: ObservableObject {
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
-    
-    //Login Call
-    func Login(email: String, password: String) {
-        auth.signIn(withEmail: email,
-                    password: password) { [weak self] result, err in
-            guard result != nil, err == nil else  {
-                print("Faild to login user: ", err as Any)
-                self?.loginStatusMessage = "Faild to login user: \(String(describing: err))"
-                return
-            }
-            DispatchQueue.main.async {
-                print("Successfully login user: \(result?.user.uid ?? "" )")
-                self?.signedIn = true
-                self?.loginStatusMessage = "Successfully login user: \(result?.user.uid ?? "" )"
-            }
-        }
-    }
-    
-    func Register() {
-        withAnimation {
-            auth.createUser(withEmail: email, password: password) { [weak self] result, err in
-                guard result != nil, err == nil else  {
-                    print("Faild to create user: ", err as Any)
-                    self?.loginStatusMessage = "Faild to create user: \(String(describing: err))"
-                    return
-                }
-                DispatchQueue.main.async {
-                    print("Successfully created user: \(result?.user.uid ?? "" )")
-                    self?.signedIn = true
-                    self?.loginStatusMessage = "Successfully created user: \(result?.user.uid ?? "" )"
-                }
-            }
-        }
-    }
-    
     func ForgotPassword() {
         
     }

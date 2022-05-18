@@ -22,6 +22,8 @@ struct SearchBar: View {
                 .background(Color(.white))
                 .foregroundColor(.black)
                 .cornerRadius(8)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
                 .overlay(
                     
                     HStack {

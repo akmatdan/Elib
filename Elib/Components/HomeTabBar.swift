@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeTabBar: View {
 
-    @State var selectedIndex = 1
+    @State var selectedIndex = 0
     
-    let tabBarImageNames = ["Ganre", "Books", "Libraries"]
+    let tabBarImageNames = ["Books", "Ganre"]
     
     var body: some View {
         ScrollView {
@@ -19,14 +19,14 @@ struct HomeTabBar: View {
                 
                 // SelectedIndex of TabBar
                 HStack {
-                    ForEach(0..<3) { num in
+                    ForEach(0..<2) { num in
                         Button(action: {
                             selectedIndex = num
                         }, label: {
                             Spacer()
                                 Text("\(tabBarImageNames[num])")
                                     .font(.custom(customFont, size: 16))
-                                    .fontWeight(.semibold)
+                                    .fontWeight(.bold)
                                     .foregroundColor(selectedIndex == num ? Color(red: 0.2, green: 0.0, blue: 0.7) : .init(white: 0.7))
                                     .padding(.bottom, 10)
                                     .overlay(
@@ -36,7 +36,8 @@ struct HomeTabBar: View {
                                                     .fill(Color(red: 0.2, green: 0.0, blue: 0.7))
                                                     .frame(height: 2)
                                             }
-                                        },alignment: .bottom
+                                        }
+                                        ,alignment: .bottom
                                     )
                             Spacer()
                         })
@@ -46,16 +47,11 @@ struct HomeTabBar: View {
                     
                     switch selectedIndex {
                     case 0:
-                        GanreList()
-                        
-                    case 1:
                         MainList()
-                        
                     default:
-                        LibrariesList()
+                        GanreList()
                     }
                 }
-                
                 Spacer()
             }
         }

@@ -30,17 +30,17 @@ struct BookDetailView: View {
                         Text(book.title)
                             .font(.custom(customFont, size: 20).bold())
                         Spacer()
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "heart")
-                                .renderingMode(.template)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 22, height: 22)
-                                .foregroundColor(Color.black.opacity(0.7))
-                                .padding(.horizontal, 10)
-                        }
+//                        Button {
+//                            
+//                        } label: {
+//                            Image(systemName: "heart")
+//                                .renderingMode(.template)
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: 22, height: 22)
+//                                .foregroundColor(Color.black.opacity(0.7))
+//                                .padding(.horizontal, 10)
+//                        }
                     }
                     
                     
@@ -85,20 +85,20 @@ struct BookDetailView: View {
                         .foregroundColor(Color(red: 0.2, green: 0.0, blue: 0.7))
                     }
                     
-                    Button {
-                        
-                    } label: {
-                        Text("Add to library")
-                            .font(.custom(customFont, size: 20))
-                            .foregroundColor(Color.white)
-                            .padding(.vertical, 15)
-                            .frame(maxWidth: .infinity)
-                            .background(
-                                Color(red: 0.2, green: 0.0, blue: 0.7)
-                                    .cornerRadius(15)
-                                    .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
-                            )
-                    }
+//                    Button {
+//
+//                    } label: {
+//                        Text("Add to library")
+//                            .font(.custom(customFont, size: 20))
+//                            .foregroundColor(Color.white)
+//                            .padding(.vertical, 15)
+//                            .frame(maxWidth: .infinity)
+//                            .background(
+//                                Color(red: 0.2, green: 0.0, blue: 0.7)
+//                                    .cornerRadius(15)
+//                                    .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
+//                            )
+//                    }
                 }
                 .padding([.horizontal,.bottom,], 10)
                 .padding(.top, 25)

@@ -7,10 +7,29 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 
 class BooksViewModel: ObservableObject {
 
     @Published var books = [Book]()
+    
+    func deleteBook(with id: String) {
+        let db = Firestore.firestore()
+        db.collection("books").whereField("id", isEqualTo: id).getDocuments {(snap, err) in
+            
+            if err != nil {
+                print("Error")
+                return
+            }
+            
+            for i in snap!.documents {
+                DispatchQueue.main.async {
+                    i.reference.delete()
+                }
+            }
+        }
+        
+    }
 
     func deleteData(bookToDelete: Book) {
         
@@ -57,6 +76,7 @@ class BooksViewModel: ObservableObject {
 //    }
 
     func fetchData() {
+        
         let db = Firestore.firestore()
 
         db.collection("books").getDocuments { snapshot, error in
@@ -72,13 +92,13 @@ class BooksViewModel: ObservableObject {
                             // Create a book item for each document returned
                             return Book(
                                          isbn: d["isbn"] as? String ?? "",
-                                         imageName: d["imageName"] as? String ?? "",
                                          title: d["title"] as? String ?? "",
                                          author: d["author"] as? String ?? "",
                                          year: d["year"] as? String ?? "",
                                          description: d["description"] as? String ?? "",
                                          url: d["url"] as? String ?? "",
-                                         likedBooks: d["liked"] as? Int ?? 0
+                                         likedBooks: d["liked"] as? Bool ?? false,
+                                         uid: d["uid"] as? String ?? ""
                             )
                         }
                     }

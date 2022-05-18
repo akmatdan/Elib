@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 import FirebaseStorage
 import FirebaseFirestore
+import FirebaseAuth
 
 struct AddBookView: View {
     
@@ -33,13 +34,19 @@ struct AddBookView: View {
     let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     @State var count: Int = 0
     
+    
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
                 
                 // Select and Change Button
                 VStack {
-                   
+                    Text("Add new book")
+                        .font(.custom(customFont, size: 28).bold())
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 22)
+                    
                    if selectedImage != nil {
                        Image(uiImage: selectedImage!)
                            .resizable()
@@ -74,20 +81,30 @@ struct AddBookView: View {
                 VStack(spacing: 15) {
                     TextField("ISBN", text: $isbn)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     TextField("Title", text: $title)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     TextField("Author", text: $author)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     TextField("Year", text: $year)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     TextField("Description", text: $description)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                         
                     // Add Book button
                     
                     if selectedImage != nil {
                         Button {
-//                            uploadPhoto()
+                            uploadPhoto()
                             
                             withAnimation() {
                                 customAlert.toggle()
@@ -157,11 +174,15 @@ struct AddBookView: View {
         .background(Color(.systemGray6))
     }
     
+
     // Uploading Photo and Data
     func uploadPhoto() {
         
         // Make sure that the selected image isn't nil
         guard selectedImage != nil else { return }
+        
+        // Geting userID for adding data to myLibrary page
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         
         // Create storage reference
         let storageRef = Storage.storage().reference()
@@ -185,7 +206,7 @@ struct AddBookView: View {
                     
                     // Save a reference to the file in Firestore DB with other data
                     let db = Firestore.firestore()
-                    db.collection("books").document().setData(["url": "https://firebasestorage.googleapis.com/v0/b/elib-658e7.appspot.com/o/\(path)?alt=media", "isbn": isbn, "title": title, "author": author, "year": year, "description": description])
+                    db.collection("books").document().setData(["url": "https://firebasestorage.googleapis.com/v0/b/elib-658e7.appspot.com/o/\(path)?alt=media", "isbn": isbn, "title": title, "author": author, "year": year, "description": description, "uid": userID])
                 }
             }
         }
@@ -288,6 +309,7 @@ struct HUDProgressView : View {
                         count -= 1
                     }
                 }
+                .ignoresSafeArea()
         )
         .onAppear{
             // Starting Animation
@@ -327,6 +349,7 @@ struct CustomAlertView : View {
                             Color(red: 0.2, green: 0.0, blue: 0.7)
                                 .cornerRadius(15)
                                 .shadow(color: Color.black.opacity(0.06), radius: 5, x: 5, y: 5)
+                                .ignoresSafeArea()
                         )
                 }
             }

@@ -85,7 +85,7 @@ enum Tab: String, CaseIterable {
 
     case MyLibrary = "book.fill"
 
-    case Profile = "person.fill"
+    case Profile = "slider.vertical.3"
 }
 
 struct TabBar_Previews: PreviewProvider {
