@@ -51,6 +51,7 @@ struct AddBookView: View {
                        Image(uiImage: selectedImage!)
                            .resizable()
                            .frame(maxWidth: 240, maxHeight: 320)
+                           .scaledToFill()
                    }
                    
                     Button {

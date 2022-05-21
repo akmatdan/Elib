@@ -15,7 +15,7 @@ class BooksViewModel: ObservableObject {
     
     func deleteBook(with id: String) {
         let db = Firestore.firestore()
-        db.collection("books").whereField("id", isEqualTo: id).getDocuments {(snap, err) in
+        db.collection("books").whereField("id", isEqualTo: id).getDocuments { (snap, err) in
             
             if err != nil {
                 print("Error")
@@ -31,30 +31,37 @@ class BooksViewModel: ObservableObject {
         
     }
 
-    func deleteData(bookToDelete: Book) {
+    func deleteData(bookID: String?) {
         
         // Get ref to the db
         let db = Firestore.firestore()
         
-        // Specify the doc to delete
-        db.collection("books").document(bookToDelete.id).delete { error in
+        if let bookToDeleteID = bookID {
             
-            // Check for errors
-            if error == nil {
+            // Specify the doc to delete
+            db.collection("books").document(bookToDeleteID).delete { error in
                 
-                // Update UI from the main thread
-                DispatchQueue.main.async {
+                // Check for errors
+                if error == nil {
                     
-                    // Remove the book that was just deleted
-                    self.books.removeAll { book in
+                    // Update UI from the main thread
+                    DispatchQueue.main.async {
                         
-                        // Check for the book to remove
-                        return book.id == bookToDelete.id
+                        // Remove the book that was just deleted
+                        self.books.removeAll { books in
+                            
+                            // Check for the book to remove
+                            return books.id == bookToDeleteID
+                        }
                     }
+                } else {
+                    print(error!.localizedDescription)
                 }
             }
         }
+        
     }
+    
     
 //    func addData(isbn: String, title: String, author: String, year: String, description: String, url: String) {
 //        

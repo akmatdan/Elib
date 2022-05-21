@@ -60,7 +60,7 @@ struct MyLibraryView: View {
                                     .swipeActions {
                                         Button(role: .destructive) {
                                             print("Deleted")
-                                            model.deleteData(bookToDelete: filteredBooks[0])
+                                            model.deleteData(bookID: books.id)
                                         } label: {
                                             Label("Delete", systemImage: "trash.circle.fill")
                                         }
