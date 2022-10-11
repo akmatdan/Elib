@@ -21,7 +21,7 @@ struct MyLibraryView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                Text("My Library")
+                Text("Моя библиотека")
                     .font(.custom(customFont, size: 28).bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 20)
@@ -62,7 +62,7 @@ struct MyLibraryView: View {
                                             print("Deleted")
                                             model.deleteData(bookID: books.id)
                                         } label: {
-                                            Label("Delete", systemImage: "trash.circle.fill")
+                                            Label("Удалить", systemImage: "trash.circle.fill")
                                         }
                                         
                                     }

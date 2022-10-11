@@ -37,7 +37,7 @@ struct LogInView: View {
                                 .shadow(color: Color.black.opacity(0.3), radius: 5, x: 5, y: 5)
                                 .offset(x: 20)
                             
-                            Text("Log in")
+                            Text("Войти")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(color)
@@ -52,12 +52,12 @@ struct LogInView: View {
                             HStack {
                                 VStack {
                                     if self.visible {
-                                        TextField("Password", text: $loginData.password)
+                                        TextField("Пароль", text: $loginData.password)
                                             .disableAutocorrection(true)
                                             .autocapitalization(.none)
                                     }
                                     else {
-                                        SecureField("Password", text: $loginData.password)
+                                        SecureField("Пароль", text: $loginData.password)
                                             .disableAutocorrection(true)
                                             .autocapitalization(.none)
                                     }
@@ -81,7 +81,7 @@ struct LogInView: View {
                                 Button {
                                     self.reset()
                                 } label: {
-                                    Text("Forget password")
+                                    Text("Забыл пароль")
                                         .fontWeight(.bold)
                                         .foregroundColor(color)
                                 }
@@ -91,7 +91,7 @@ struct LogInView: View {
                             Button {
                                 self.verify()
                             } label: {
-                                Text("Log in")
+                                Text("Войти")
                                     .fontWeight(.semibold)
                                     .foregroundColor(.white)
                                     .padding(.vertical)
@@ -109,7 +109,7 @@ struct LogInView: View {
                 Button {
                     self.show.toggle()
                 } label: {
-                    Text("Register")
+                    Text("Регистрация")
                         .fontWeight(.bold)
                         .foregroundColor(color)
                 }
@@ -145,7 +145,7 @@ struct LogInView: View {
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
             }
         } else {
-            self.error = "Please fill all the contents properly"
+            self.error = "Пожалуйста заполните все поля."
             self.alert.toggle()
         }
     }
@@ -167,7 +167,7 @@ struct LogInView: View {
             }
         } else {
             
-            self.error = "Email Id is empty"
+            self.error = "Email Id пустой!"
             self.alert.toggle()
         }
     }
@@ -199,7 +199,7 @@ struct SignUpView: View {
                                 .shadow(color: Color.black.opacity(0.3), radius: 5, x: 5, y: 5)
                                 .offset(x: 20)
                             
-                            Text("Sign up")
+                            Text("Регистрация")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(color)
@@ -214,12 +214,12 @@ struct SignUpView: View {
                             HStack {
                                 VStack {
                                     if loginData.showPassword {
-                                        TextField("Password", text: $loginData.password)
+                                        TextField("Пароль", text: $loginData.password)
                                             .disableAutocorrection(true)
                                             .autocapitalization(.none)
                                     }
                                     else {
-                                        SecureField("Password", text: $loginData.password)
+                                        SecureField("Пароль", text: $loginData.password)
                                             .disableAutocorrection(true)
                                             .autocapitalization(.none)
                                     }
@@ -240,12 +240,12 @@ struct SignUpView: View {
                             HStack {
                                 VStack {
                                     if loginData.showReEnterPassword {
-                                        TextField("Re-enter", text: $loginData.reEnterPassword)
+                                        TextField("Повторный ввод", text: $loginData.reEnterPassword)
                                             .disableAutocorrection(true)
                                             .autocapitalization(.none)
                                     }
                                     else {
-                                        SecureField("Re-enter", text: $loginData.reEnterPassword)
+                                        SecureField("Повторный ввод", text: $loginData.reEnterPassword)
                                             .disableAutocorrection(true)
                                             .autocapitalization(.none)
                                     }
@@ -266,7 +266,7 @@ struct SignUpView: View {
                             Button {
                                 self.register()
                             } label: {
-                                Text("Register")
+                                Text("Регистрация")
                                     .fontWeight(.semibold)
                                     .foregroundColor(.white)
                                     .padding(.vertical)
@@ -317,17 +317,17 @@ struct SignUpView: View {
                         return
                     }
                     
-                    print("Success")
+                    print("Успешно")
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 }
                 
             } else {
-                self.error = "Password mismatch"
+                self.error = "Пароль не верный"
                 self.alert.toggle()
             }
         } else {
-            self.error = "Please fill all the contents properly"
+            self.error = "Пожалуйста заполните все поля"
             self.alert.toggle()
         }
     }
@@ -346,7 +346,7 @@ struct ErrorView : View {
             VStack {
                 
                 HStack {
-                    Text(self.error == "RESET" ? "Message" : "Error")
+                    Text(self.error == "Восстановить" ? "Сообщение" : "Ошибка")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(self.color)
@@ -355,7 +355,7 @@ struct ErrorView : View {
                 }
                 .padding(.horizontal, 25)
                 
-                Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
+                Text(self.error == "Восстановить" ? "Ссылка на восстановление пароля отправлена успешно." : self.error)
                     .foregroundColor(self.color)
                     .padding(.top)
                     .padding(.horizontal, 25)
@@ -363,7 +363,7 @@ struct ErrorView : View {
                 Button {
                     self.alert.toggle()
                 } label: {
-                    Text(self.error == "RESET" ? "OK" : "Cancel")
+                    Text(self.error == "Восстановить" ? "OK" : "Отмена")
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                         .padding(.vertical)

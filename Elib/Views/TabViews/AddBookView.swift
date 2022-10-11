@@ -41,7 +41,7 @@ struct AddBookView: View {
                 
                 // Select and Change Button
                 VStack {
-                    Text("Add new book")
+                    Text("Добавить новую книгу")
                         .font(.custom(customFont, size: 28).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, 20)
@@ -58,7 +58,7 @@ struct AddBookView: View {
                         isPickerShowing = true
                     } label: {
                         if selectedImage != nil {
-                            Text("Change a photo")
+                            Text("Изменить фото")
                                 .font(.system(size: 22, weight: .bold))
                                 .foregroundColor(Color.gray)
                                 .padding(.bottom, 20)
@@ -69,7 +69,7 @@ struct AddBookView: View {
                                     .foregroundColor(Color(.gray))
                                     .padding(.top, 10)
                                 
-                                Text("Select a photo")
+                                Text("Выбрать фото")
                                     .font(.system(size: 22, weight: .bold))
                                     .foregroundColor(Color.gray)
                                     .padding(.bottom, 20)
@@ -84,19 +84,19 @@ struct AddBookView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
-                    TextField("Title", text: $title)
+                    TextField("Название", text: $title)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
-                    TextField("Author", text: $author)
+                    TextField("Автор", text: $author)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
-                    TextField("Year", text: $year)
+                    TextField("Год", text: $year)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
-                    TextField("Description", text: $description)
+                    TextField("Описание", text: $description)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
@@ -117,7 +117,7 @@ struct AddBookView: View {
                             
                         
                         } label: {
-                            Text("Add Book")
+                            Text("Добавить")
                                 .font(.custom(customFont, size: 17).bold())
                                 .fontWeight(.semibold)
                                 .padding(.vertical, 20)
@@ -141,7 +141,7 @@ struct AddBookView: View {
                         UIApplication.shared.dismissKeyboard()
                     },
                            label: {
-                        Text("Clear")
+                        Text("Очистить")
                             .font(.custom(customFont, size: 17).bold())
                             .fontWeight(.semibold)
                             .padding(.vertical, 20)
@@ -167,7 +167,7 @@ struct AddBookView: View {
             }
             
             if HUD {
-                HUDProgressView(placeHolder: "Please wait", show: $HUD)
+                HUDProgressView(placeHolder: "Пожалуйста подождите", show: $HUD)
             }
         }
         .navigationBarTitle("")
@@ -212,55 +212,6 @@ struct AddBookView: View {
             }
         }
     }
-    
-    // Fetch Photo
-//    func retriveData() {
-//
-//        // Get the data from the DB
-//        let db = Firestore.firestore()
-//
-//        db.collection("books").getDocuments { snapshot, error in
-//
-//            if error == nil && snapshot != nil {
-//
-//                var paths = [String]()
-//
-//                // Loop through all the returned docs
-//                for doc in snapshot!.documents {
-//
-//                    // Extract the file path
-//                    paths.append(doc["url"] as! String)
-//                }
-//
-//                // Loop through each file path and fetch data from storage
-//                for path in paths {
-//
-//                    // Get a reference to a storage
-//                    let storageRef = Storage.storage().reference()
-//
-//                    // Specify the path
-//                    let fileRef = storageRef.child(path)
-//
-//                    // Retrieve the path
-//                    fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
-//
-//                        if error == nil  && data != nil {
-//
-//                            // Create a UIImage and put it into our array for display
-//                            if let image = UIImage(data: data!) {
-//                                DispatchQueue.main.async {
-//                                    retrivedImages.append(image)
-//                                }
-//                            }
-//                        }
-//                    }
-//                } // End of loop through path
-//            }
-//        }
-//
-//        // Display the images
-//    }
-    
 }
 
 struct AddBookView_Previews: PreviewProvider {
@@ -332,16 +283,16 @@ struct CustomAlertView : View {
         ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
             VStack(spacing: 25) {
                 Image(systemName: "checkmark.circle.fill")
-                Text("Congratulations!")
+                Text("Отлично!")
                     .font(.custom(customFont, size: 20))
                     .fontWeight(.bold)
-                Text("You've successfully published your book.")
+                Text("Вы успешно опубликовали книгу")
                 Button {
                     withAnimation {
                         show.toggle()
                     }
                 } label: {
-                    Text("Back")
+                    Text("Назад")
                         .font(.custom(customFont, size: 20))
                         .foregroundColor(Color.white)
                         .padding(.vertical, 15)

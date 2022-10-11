@@ -14,7 +14,7 @@ struct ProfileView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    Text("Settings")
+                    Text("Настройки")
                         .font(.custom(customFont, size: 28).bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
@@ -50,7 +50,7 @@ struct ProfileView: View {
                     .padding(.top, 40)
                     
                     // Custom Navigation Links
-                    CustomNavigationLink(title: "Account settings") {
+                    CustomNavigationLink(title: "Настройка аккаунта") {
                         
                         
                         Text("")
@@ -59,28 +59,28 @@ struct ProfileView: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     
-                    CustomNavigationLink(title: "Display settings") {
+                    CustomNavigationLink(title: "Настройка дисплейя") {
                         Text("")
                             .navigationTitle("Display settings")
                             .background(Color(.systemGray6))
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     
-                    CustomNavigationLink(title: "Notification settings") {
+                    CustomNavigationLink(title: "Настройка уведомления") {
                         Text("")
                             .navigationTitle("Notification settings")
                             .background(Color(.systemGray6))
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     
-                    CustomNavigationLink(title: "Reports & Statistics") {
+                    CustomNavigationLink(title: "Отчет и статистика") {
                         Text("")
                             .navigationTitle("Reports & Statistics")
                             .background(Color(.systemGray6))
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     
-                    CustomNavigationLink(title: "Import & Export") {
+                    CustomNavigationLink(title: "Иморт и экспорт данных") {
                         Text("")
                             .navigationTitle("Import & Export")
                             .background(Color(.systemGray6))
@@ -94,7 +94,7 @@ struct ProfileView: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     
-                    CustomNavigationLink(title: "Contact us") {
+                    CustomNavigationLink(title: "Связаться с нами") {
                         Text("")
                             .navigationTitle("Contact us")
                             .background(Color(.systemGray6))
@@ -104,7 +104,7 @@ struct ProfileView: View {
                     Button {
                         loginData.signOut()
                     } label: {
-                        Text("Logout")
+                        Text("Выйти")
                             .font(.custom(customFont, size: 17).bold())
                             .fontWeight(.semibold)
                             .padding(.vertical, 20)

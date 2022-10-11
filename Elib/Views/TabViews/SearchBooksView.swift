@@ -15,7 +15,7 @@ struct SearchBooksView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                Text("Search book")
+                Text("Поиск книг")
                     .font(.custom(customFont, size: 28).bold())
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 20)
@@ -52,7 +52,7 @@ struct SearchBooksView: View {
                         }
                     }
                 } else {
-                    Text("Try to search books by title, author, ISBN or even name of libraries!")
+                    Text("Поиск по названию, автору или ISBN")
                         .font(.custom(customFont, size: 14))
                         .fontWeight(.semibold)
                         .padding(.horizontal, 10)

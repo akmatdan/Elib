@@ -44,12 +44,12 @@ struct BookDetailView: View {
                     }
                     
                     
-                    Text("Author: \(book.author)")
+                    Text("Автор: \(book.author)")
                         .font(.custom(customFont, size: 18).bold())
                         .foregroundColor(Color.gray)
                     
                     HStack {
-                        Text("Published:")
+                        Text("Опубликовано:")
                             .font(.custom(customFont, size: 18).bold())
                             .foregroundColor(Color.gray)
                         
@@ -79,7 +79,7 @@ struct BookDetailView: View {
                         Label {
                             Image(systemName: "arrow.right")
                         } icon: {
-                            Text("Full desscription")
+                            Text("Полное описание")
                         }
                         .font(.custom(customFont, size: 15))
                         .foregroundColor(Color(red: 0.2, green: 0.0, blue: 0.7))
