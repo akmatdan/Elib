@@ -53,10 +53,10 @@ struct ProfileView: View {
                     CustomNavigationLink(title: "Настройка аккаунта") {
                         
                         
-                        Text("")
-                            .navigationTitle("Account settings")
-                            .background(Color(.systemGray6))
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    Text("")
+                        .navigationTitle("Account settings")
+                        .background(Color(.systemGray6))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     
                     CustomNavigationLink(title: "Настройка дисплейя") {
